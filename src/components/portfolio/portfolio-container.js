@@ -10,53 +10,11 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: "Welcome to my portfolio. Do you love it?",
             isLoading: false,
-            data: [
-                {
-                    title: "Brian",
-                    url: "https://briankozub.com",
-                    category: "self",
-                    slug: "brian",
-                },
-                {
-                    title: "Daisy",
-                    url: "https://daisykozub.com",
-                    category: "daughter",
-                    slug: "daisy",
-                },
-                {
-                    title: "Sage",
-                    url: "https://sagekozub.com",
-                    category: "wife",
-                    slug: "sage",
-                },
-            ],
+            data: [],
         };
 
         this.handleFilter = this.handleFilter.bind(this);
         this.getPortfolioItems = this.getPortfolioItems.bind(this);
-    }
-
-    getPortfolioItems() {
-        axios
-            .get(
-                "https://brikozub.devcamp.space/portfolio/portfolio_items"
-            )
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-
-    portfolioItems() {
-        return this.state.data.map((item) => (
-            <PortfolioItem
-                title={item.title}
-                url={item.url}
-                slug={item.slug}
-            />
-        ));
     }
 
     handleFilter(filter) {
@@ -66,6 +24,37 @@ export default class PortfolioContainer extends Component {
             }),
         });
     }
+
+    getPortfolioItems() {
+        axios
+            .get(
+                "https://brikozub.devcamp.space/portfolio/portfolio_items"
+            )
+            .then((response) => {
+                this.setState({
+                    data: response.data.portfolio_items,
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    portfolioItems() {
+        return this.state.data.map((item) => (
+            <PortfolioItem
+                title={item.name}
+                url={item.url}
+                slug={item.id}
+            />
+        ));
+    }
+
+    componentDidMount() {
+        this.getPortfolioItems();
+    }
+
+    
 
     render() {
         this.getPortfolioItems();
