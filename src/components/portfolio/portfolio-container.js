@@ -14,16 +14,19 @@ export default class PortfolioContainer extends Component {
                     title: "Brian",
                     url: "https://briankozub.com",
                     category: "self",
+                    slug: "brian",
                 },
                 {
                     title: "Daisy",
                     url: "https://daisykozub.com",
                     category: "daughter",
+                    slug: "daisy",
                 },
                 {
                     title: "Sage",
                     url: "https://sagekozub.com",
                     category: "wife",
+                    slug: "sage",
                 },
             ],
         };
@@ -33,7 +36,7 @@ export default class PortfolioContainer extends Component {
 
     portfolioItems() {
         return this.state.data.map((item) => (
-            <PortfolioItem title={item.title} url={item.url} />
+            <PortfolioItem title={item.title} url={item.url} slug={item.slug} />
         ));
     }
 
