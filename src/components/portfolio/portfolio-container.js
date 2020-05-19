@@ -60,14 +60,14 @@ export default class PortfolioContainer extends Component {
             <div>
                 <h2>{this.state.pageTitle}</h2>
 
-                <button onClick={() => this.handleFilter("self")}>
-                    Self
+                <button onClick={() => this.handleFilter("ecommerce")}>
+                    ecommerce
                 </button>
-                <button onClick={() => this.handleFilter("wife")}>
-                    Wife
+                <button onClick={() => this.handleFilter("socialMedia")}>
+                    Social Media
                 </button>
-                <button onClick={() => this.handleFilter("daughter")}>
-                    Daughter
+                <button onClick={() => this.handleFilter("events")}>
+                    Events
                 </button>
 
                 {this.portfolioItems()}
