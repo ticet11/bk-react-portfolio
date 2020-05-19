@@ -28,7 +28,7 @@ export default class PortfolioContainer extends Component {
     getPortfolioItems() {
         axios
             .get(
-                "https://brikozub.devcamp.space/portfolio/portfolio_items"
+                "https://jordan.devcamp.space/portfolio/portfolio_items"
             )
             .then((response) => {
                 this.setState({
@@ -41,14 +41,22 @@ export default class PortfolioContainer extends Component {
     }
 
     portfolioItems() {
-        return this.state.data.map((item) => (
-            <PortfolioItem
-                key={item.id}
-                title={item.name}
-                url={item.url}
-                slug={item.id}
-            />
-        ));
+        // Data we need:
+        // - background image
+        // - logo
+        // - description
+        // - id
+        return this.state.data.map((item) => {
+            debugger;
+            return (
+                <PortfolioItem
+                    key={item.id}
+                    title={item.name}
+                    url={item.url}
+                    slug={item.id}
+                />
+            );
+        });
     }
 
     componentDidMount() {
