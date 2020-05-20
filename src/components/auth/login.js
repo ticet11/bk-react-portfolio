@@ -14,7 +14,7 @@ export default class Login extends Component {
     }
 
     handleSubmit(event) {
-        console.log("handle submit", event);
+        event.preventDefault();
     }
 
     handleChange(event) {
