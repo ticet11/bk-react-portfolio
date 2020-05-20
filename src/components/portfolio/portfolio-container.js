@@ -51,7 +51,6 @@ export default class PortfolioContainer extends Component {
     }
 
     render() {
-        this.getPortfolioItems();
         if (this.state.isLoading) {
             return <div>Loading...</div>;
         }
