@@ -16,7 +16,7 @@ import NavigationContainer from "./navigation/navigation-container";
 export default class App extends Component {
     render() {
         return (
-            <div className="app">
+            <div className="container">
                 <Router>
                     <div>
                         <NavigationContainer />
