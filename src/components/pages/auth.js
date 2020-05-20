@@ -1,7 +1,20 @@
 import React, { Component } from "react";
+import loginImg from "../../../static/assets/images/auth/login.jpg"
 
 export default class Auth extends Component {
     render() {
-        return <h1>Auth here.</h1>;
+        return (
+            <div className="auth-page-wrapper">
+                <div
+                    className="left-column"
+                    style={{
+                        backgroundImage: `url(${loginImg})`
+                    }}
+                />
+                <div className="right-column">
+                    <h1>Login Component Here!</h1>
+                </div>
+            </div>
+        );
     }
 }
