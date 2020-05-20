@@ -11,6 +11,7 @@ import Contact from "./pages/contact";
 import Blog from "./pages/blog";
 import NoMatch from "./pages/noMatch";
 import PortfolioDetail from "./portfolio/portfolio-detail";
+import Auth from "./pages/auth";
 import NavigationContainer from "./navigation/navigation-container";
 
 export default class App extends Component {
@@ -27,6 +28,11 @@ export default class App extends Component {
                                 exact
                                 path="/about"
                                 component={About}
+                            />
+                            <Route
+                                exact
+                                path="/auth"
+                                component={Auth}
                             />
                             <Route
                                 exact
