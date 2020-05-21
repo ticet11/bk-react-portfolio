@@ -15,6 +15,32 @@ import Auth from "./pages/auth";
 import NavigationContainer from "./navigation/navigation-container";
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loggedInStatus: "NOT_LOGGED_IN",
+        };
+        this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(
+            this
+        );
+        this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(
+            this
+        );
+    }
+
+    handleSuccessfulLogin() {
+        this.setState({
+            loggedInStatus: "LOGGED_IN",
+        });
+    }
+
+    handleUnSuccessfulLogin() {
+        this.setState({
+            loggedInStatusL: "NOT_LOGGED_IN",
+        });
+    }
+
     render() {
         return (
             <div className="container">
@@ -32,7 +58,18 @@ export default class App extends Component {
                             <Route
                                 exact
                                 path="/auth"
-                                component={Auth}
+                                render={(props) => (
+                                    <Auth
+                                        {...props}
+                                        handleSuccessfulLogin={
+                                            this.handleSuccessfulLogin
+                                        }
+                                        handleUnSuccessfulLogin={
+                                            this
+                                                .handleUnSuccessfulLogin
+                                        }
+                                    />
+                                )}
                             />
                             <Route
                                 exact
