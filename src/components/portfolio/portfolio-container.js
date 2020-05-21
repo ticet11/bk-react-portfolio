@@ -34,7 +34,6 @@ export default class PortfolioContainer extends Component {
                 this.setState({
                     data: response.data.portfolio_items,
                 });
-                console.log(response.data.portfolio_items);
             })
             .catch((error) => {
                 console.log(error);
