@@ -28,12 +28,13 @@ export default class PortfolioContainer extends Component {
     getPortfolioItems() {
         axios
             .get(
-                "https://jordan.devcamp.space/portfolio/portfolio_items"
+                "https://brikozub.devcamp.space/portfolio/portfolio_items"
             )
             .then((response) => {
                 this.setState({
                     data: response.data.portfolio_items,
                 });
+                console.log(response.data.portfolio_items);
             })
             .catch((error) => {
                 console.log(error);
