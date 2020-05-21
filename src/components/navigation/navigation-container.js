@@ -7,10 +7,10 @@ const NavigationContainer = (props) => {
             <div className="nav-link-wrapper">
                 <NavLink
                     exact
-                    to="/blog"
+                    to={route}
                     activeClassName="nav-link-active"
                 >
-                    Blog
+                    {linkText}
                 </NavLink>
             </div>
         );
