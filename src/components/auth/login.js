@@ -29,17 +29,19 @@ export default class Login extends Component {
             )
             .then((response) => {
                 if (response.data.status === "created") {
-                    console.log("You did it!");
+                    this.props.handleSuccessfulAuth();
                 } else {
                     this.setState({
                         errorText: "Wrong email or password",
                     });
+                    this.props.handleUnsuccessfulAuth();
                 }
             })
             .catch((error) => {
                 this.setState({
                     errorText: "An error!",
                 });
+                this.props.handleUnsuccessfulAuth();
             });
         event.preventDefault();
     }
