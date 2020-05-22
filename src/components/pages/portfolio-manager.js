@@ -47,6 +47,7 @@ export default class PorfolioManager extends Component {
                 <div className="right-column">
                     <p>Portfolio Sidebar</p>
                     <PortfolioSidebarList
+                        
                         data={this.state.data}
                     />
                 </div>
