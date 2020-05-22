@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import PorfolioForm from "../portfolio/portfolio-form";
 import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
 
 export default class PorfolioManager extends Component {
@@ -10,6 +11,23 @@ export default class PorfolioManager extends Component {
         this.state = {
             data: [],
         };
+
+        this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
+            this
+        );
+        this.handleFormSubmissionError = this.handleFormSubmissionError.bind(
+            this
+        );
+    }
+
+    handleSuccessfulFormSubmission(portfolioItem) {
+        // TODO:
+        // update data state
+        // add portfolioItem to the list
+    }
+
+    handleFormSubmissionError(error) {
+        console.log('Form submission error', error)
     }
 
     getPortfolioItems() {
@@ -28,7 +46,6 @@ export default class PorfolioManager extends Component {
             });
     }
 
-
     componentDidMount() {
         this.getPortfolioItems();
     }
@@ -37,19 +54,17 @@ export default class PorfolioManager extends Component {
         return (
             <div className="portfolio-manager-wrapper">
                 <div className="left-column">
-                    <form action="">
-                        <input
-                            type="text"
-                            placeholder="Portfolio Form"
-                        />
-                    </form>
+                    <PorfolioForm
+                        handleSuccessfulFormSubmission={
+                            this.handleSuccessfulFormSubmission
+                        }
+                        handleFormSubmissionError={
+                            this.handleFormSubmissionError
+                        }
+                    />
                 </div>
                 <div className="right-column">
-                    <p>Portfolio Sidebar</p>
-                    <PortfolioSidebarList
-                        
-                        data={this.state.data}
-                    />
+                    <PortfolioSidebarList data={this.state.data} />
                 </div>
             </div>
         );
