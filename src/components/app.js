@@ -92,7 +92,7 @@ export default class App extends Component {
     }
 
     authorizedPages() {
-        return [<Route path="/blog" component={Blog} />];
+        return [<Route key="blog" path="/blog" component={Blog} />];
     }
 
     render() {
@@ -102,7 +102,9 @@ export default class App extends Component {
                     <div>
                         <NavigationContainer
                             loggedInStatus={this.state.loggedInStatus}
-                            handleSuccessfulLogout={this.handleSuccessfulLogout}
+                            handleSuccessfulLogout={
+                                this.handleSuccessfulLogout
+                            }
                         />
                         <h2>{this.state.loggedInStatus}</h2>
                         <Switch>
