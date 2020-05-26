@@ -28,7 +28,7 @@ export default class PortfolioContainer extends Component {
     getPortfolioItems() {
         axios
             .get(
-                "https://brikozub.devcamp.space/portfolio/portfolio_items"
+                "https://brikozub.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc"
             )
             .then((response) => {
                 this.setState({
