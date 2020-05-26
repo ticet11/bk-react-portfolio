@@ -24,6 +24,13 @@ export default class PortfolioForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.compontConfig = this.compontConfig.bind(this);
         this.djsConfig = this.djsConfig.bind(this);
+        this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    }
+
+    handleThumbDrop() {
+        return {
+            addedfile: (file) => this.setState({ thumb_image: file }),
+        };
     }
 
     compontConfig() {
@@ -58,6 +65,12 @@ export default class PortfolioForm extends Component {
             "portfolio_item[position]",
             this.state.position
         );
+        if (this.state.thumb_image) {
+            formData.append(
+                "portfolio_item[thumb_image]",
+                this.state.thumb_image
+            );
+        }
 
         return formData;
     }
@@ -148,8 +161,10 @@ export default class PortfolioForm extends Component {
 
                     <div className="image-uploaders">
                         <DropzoneComponent
-                        config={this.compontConfig()}
-                        djsConfig={this.djsConfig()} />
+                            config={this.compontConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleThumbDrop()}
+                        />
                     </div>
 
                     <div>
