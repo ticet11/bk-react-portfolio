@@ -55,6 +55,9 @@ export default class PortfolioForm extends Component {
                 { withCredentials: true }
             )
             .then((response) => {
+                this.props.handleSuccessfulFormSubmission(
+                    response.data.portfolio_item
+                );
                 console.log("response", response);
             })
             .catch((error) => {
@@ -101,14 +104,20 @@ export default class PortfolioForm extends Component {
                             value={this.state.category}
                             onChange={this.handleChange}
                         >
-                            <option value="eCommerce">eCommerce</option>
-                            <option value="Scheduling">Scheduling</option>
-                            <option value="Enterprise">Enterprise</option>
+                            <option value="eCommerce">
+                                eCommerce
+                            </option>
+                            <option value="Scheduling">
+                                Scheduling
+                            </option>
+                            <option value="Enterprise">
+                                Enterprise
+                            </option>
                         </select>
                     </div>
                     <div>
                         <textarea
-                            type='text'
+                            type="text"
                             name="description"
                             placeholder="Description"
                             value={this.state.description}

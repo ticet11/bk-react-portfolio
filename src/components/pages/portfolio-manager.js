@@ -21,19 +21,21 @@ export default class PorfolioManager extends Component {
     }
 
     handleSuccessfulFormSubmission(portfolioItem) {
-        // TODO:
-        // update data state
-        // add portfolioItem to the list
+        this.setState({
+            portfolioItems: [portfolioItem].concat(
+                this.state.portfolioItems
+            ),
+        });
     }
 
     handleFormSubmissionError(error) {
-        console.log('Form submission error', error)
+        console.log("Form submission error", error);
     }
 
     getPortfolioItems() {
         axios
             .get(
-                "https://brikozub.devcamp.space/portfolio/portfolio_items",
+                "https://brikozub.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc",
                 { withCredentials: true }
             )
             .then((response) => {
