@@ -23,8 +23,22 @@ export default class PorfolioManager extends Component {
     }
 
     handleDeleteClick(portfolioItem) {
-        console.log("You clicked, buddy.", portfolioItem);
-        debugger;
+        axios
+            .delete(
+                `https://api.devcamp.space/portfolio/portfolio_items/${portfolioItem.id}`,
+                { withCredentials: true }
+            )
+            .then((response) => {
+                this.setState({
+                    data: this.state.data.filter(item => {
+                        return item.id !== portfolioItem.id;
+                    })
+                })
+                return response.data;
+            })
+            .catch((error) => {
+                console.log("delete error", error);
+            });
     }
 
     handleSuccessfulFormSubmission(portfolioItem) {
