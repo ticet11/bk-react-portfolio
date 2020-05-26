@@ -14,6 +14,7 @@ const PortfolioSidebarList = (props) => {
                 <h2>
                     {portfolioItem.id}
                 </h2>
+                <a href="" onClick={() => props.handleDeleteClick(portfolioItem)} >X</a>
             </div>
         )
     })

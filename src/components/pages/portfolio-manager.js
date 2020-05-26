@@ -18,14 +18,18 @@ export default class PorfolioManager extends Component {
         this.handleFormSubmissionError = this.handleFormSubmissionError.bind(
             this
         );
+
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    }
+
+    handleDeleteClick(portfolioItem) {
+        console.log("You clicked, buddy.", portfolioItem);
+        debugger;
     }
 
     handleSuccessfulFormSubmission(portfolioItem) {
-    
         this.setState({
-            data: [portfolioItem].concat(
-                this.state.data
-            ),
+            data: [portfolioItem].concat(this.state.data),
         });
     }
 
@@ -67,7 +71,10 @@ export default class PorfolioManager extends Component {
                     />
                 </div>
                 <div className="right-column">
-                    <PortfolioSidebarList data={this.state.data} />
+                    <PortfolioSidebarList
+                        data={this.state.data}
+                        handleDeleteClick={this.handleDeleteClick}
+                    />
                 </div>
             </div>
         );
