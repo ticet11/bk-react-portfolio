@@ -248,7 +248,12 @@ export default class PortfolioForm extends Component {
 
                 <div className="image-uploaders three-column">
                     {this.state.thumb_image && this.state.editMode ? (
-                        <img src={this.state.thumb_image} alt=""/>
+                        <div className="portfolio-manager-image-wrapper">
+                            <img
+                                src={this.state.thumb_image}
+                                alt=""
+                            />
+                        </div>
                     ) : (
                         <DropzoneComponent
                             ref={this.thumbRef}
@@ -261,27 +266,44 @@ export default class PortfolioForm extends Component {
                             </div>
                         </DropzoneComponent>
                     )}
-
-                    <DropzoneComponent
-                        ref={this.bannerRef}
-                        config={this.compontConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleBannerDrop()}
-                    >
-                        <div className="dz-message">
-                            Drop Your Banner Here
+                    {this.state.thumb_image && this.state.editMode ? (
+                        <div className="portfolio-manager-image-wrapper">
+                            <img
+                                src={this.state.thumb_image}
+                                alt=""
+                            />
                         </div>
-                    </DropzoneComponent>
-                    <DropzoneComponent
-                        ref={this.logoRef}
-                        config={this.compontConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleLogoDrop()}
-                    >
-                        <div className="dz-message">
-                            Drop Your Logo Here
+                    ) : (
+                        <DropzoneComponent
+                            ref={this.bannerRef}
+                            config={this.compontConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleBannerDrop()}
+                        >
+                            <div className="dz-message">
+                                Drop Your Banner Here
+                            </div>
+                        </DropzoneComponent>
+                    )}
+                    {this.state.thumb_image && this.state.editMode ? (
+                        <div className="portfolio-manager-image-wrapper">
+                            <img
+                                src={this.state.thumb_image}
+                                alt=""
+                            />
                         </div>
-                    </DropzoneComponent>
+                    ) : (
+                        <DropzoneComponent
+                            ref={this.logoRef}
+                            config={this.compontConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleLogoDrop()}
+                        >
+                            <div className="dz-message">
+                                Drop Your Logo Here
+                            </div>
+                        </DropzoneComponent>
+                    )}
                 </div>
 
                 <div>
