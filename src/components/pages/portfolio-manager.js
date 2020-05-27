@@ -22,6 +22,13 @@ export default class PorfolioManager extends Component {
 
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
+        this.clearItemToEdit = this.clearItemToEdit.bind(this);
+    }
+
+    clearItemToEdit() {
+        this.setState({
+            itemToEdit: {},
+        });
     }
 
     handleEditClick(portfolioItem) {
@@ -90,6 +97,8 @@ export default class PorfolioManager extends Component {
                         handleFormSubmissionError={
                             this.handleFormSubmissionError
                         }
+                        clearItemToEdit={this.clearItemToEdit}
+                        itemToEdit={this.state.itemToEdit}
                     />
                 </div>
                 <div className="right-column">
