@@ -139,7 +139,7 @@ export default class PortfolioForm extends Component {
                 );
             })
             .catch((error) => {
-                console.log(
+                console.error(
                     "portfolio form handleSubmit error",
                     error
                 );

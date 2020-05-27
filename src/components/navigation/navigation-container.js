@@ -33,7 +33,7 @@ const NavigationContainer = (props) => {
                 return response.data;
             })
             .catch((error) => {
-                console.log("error with logout", error);
+                console.error("error with logout", error);
             });
     };
 
