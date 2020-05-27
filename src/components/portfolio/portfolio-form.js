@@ -61,6 +61,9 @@ export default class PortfolioForm extends Component {
                 editMode: true,
                 apiUrl: `https://brikozub.devcamp.space/portfolio/portfolio_items/${id}`,
                 apiAction: "patch",
+                thumb_image: thumb_image_url || "",
+                banner_image: banner_image_url || "",
+                logo: logo_url || "",
             });
         }
     }
@@ -149,9 +152,13 @@ export default class PortfolioForm extends Component {
             withCredentials: true,
         })
             .then((response) => {
-                this.props.handleSuccessfulFormSubmission(
-                    response.data.portfolio_item
-                );
+                if (this.state.editMode) {
+                    this.props.handleEditFormSubmission();
+                } else {
+                    this.props.handleNewFormSubmission(
+                        response.data.portfolio_item
+                    );
+                }
 
                 this.setState({
                     name: "",
@@ -162,6 +169,10 @@ export default class PortfolioForm extends Component {
                     thumb_image: "",
                     banner_image: "",
                     logo: "",
+                    editMode: false,
+                    apiUrl:
+                        "https://brikozub.devcamp.space/portfolio/portfolio_items",
+                    apiAction: "post",
                 });
 
                 [this.thumbRef, this.bannerRef, this.logoRef].forEach(
@@ -236,16 +247,21 @@ export default class PortfolioForm extends Component {
                 </div>
 
                 <div className="image-uploaders three-column">
-                    <DropzoneComponent
-                        ref={this.thumbRef}
-                        config={this.compontConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleThumbDrop()}
-                    >
-                        <div className="dz-message">
-                            Drop Your Thumbnail Here
-                        </div>
-                    </DropzoneComponent>
+                    {this.state.thumb_image && this.state.editMode ? (
+                        <img src={this.state.thumb_image} alt=""/>
+                    ) : (
+                        <DropzoneComponent
+                            ref={this.thumbRef}
+                            config={this.compontConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleThumbDrop()}
+                        >
+                            <div className="dz-message">
+                                Drop Your Thumbnail Here
+                            </div>
+                        </DropzoneComponent>
+                    )}
+
                     <DropzoneComponent
                         ref={this.bannerRef}
                         config={this.compontConfig()}
