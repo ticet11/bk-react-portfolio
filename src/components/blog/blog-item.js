@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 export default class BlogItem extends Component {
     constructor(props) {
@@ -19,7 +20,9 @@ export default class BlogItem extends Component {
         } = this.props.item;
         return (
             <div className="blog-item-wrapper">
+                <Link to={`/b/${id}`} >
                 <h1>{title}</h1>
+                </Link>
                 <div>
                     <p>{content}</p>
                 </div>
