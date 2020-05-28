@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import BlogItem from "../blog/blog-item";
+
 export default class Blog extends Component {
     constructor() {
         super();
@@ -19,7 +21,7 @@ export default class Blog extends Component {
                 "https://brikozub.devcamp.space/portfolio/portfolio_blogs",
                 {
                     withCredentials: true,
-                }                  
+                }
             )
             .then((response) => {
                 this.setState({
@@ -33,7 +35,7 @@ export default class Blog extends Component {
 
     blogItems() {
         return this.state.data.map((item) => {
-            
+            return <BlogItem key={item.id} item={item} />;
         });
     }
 
