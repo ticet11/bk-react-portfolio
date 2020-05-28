@@ -12,14 +12,23 @@ export default class BlogItem extends Component {
     render() {
         const {
             id,
+            blog_status,
             featured_image_url,
             title,
             content,
         } = this.props.item;
-        return (<div className="blog-item-wrapper">
-            <h1>{title}</h1>
-            <img style={{width: '200px'}} src={featured_image_url} alt=""/>
-            <p>{content}</p>
-        </div>)
+        return (
+            <div className="blog-item-wrapper">
+                <h1>{title}</h1>
+                <div>
+                    <p>{content}</p>
+                </div>
+                <img
+                    style={{ width: "200px" }}
+                    src={featured_image_url}
+                    alt=""
+                />
+            </div>
+        );
     }
 }
