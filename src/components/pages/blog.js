@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 import BlogItem from "../blog/blog-item";
@@ -13,6 +12,13 @@ export default class Blog extends Component {
         };
 
         this.getBlogItems = this.getBlogItems.bind(this);
+        this.activateInfiniteScroll();
+    }
+
+    activateInfiniteScroll() {
+        window.onscroll = () => {
+            console.log('onscroll')
+        }
     }
 
     getBlogItems() {
@@ -33,24 +39,19 @@ export default class Blog extends Component {
             });
     }
 
-    blogItems() {
-        return this.state.data.map((item) => {
-            return <BlogItem key={item.id} item={item} />;
-        });
-    }
 
     componentWillMount() {
         this.getBlogItems();
     }
 
     render() {
+        const blogRecords = this.state.data.map(blogItem => {
+            return <BlogItem key={blogItem.id} blogItem={blogItem} />;
+          });
+
         return (
-            <div>
-                <h1>Blog</h1>
-                <div>
-                    <Link to="/about">More info about me!</Link>
-                    {this.blogItems()}
-                </div>
+            <div className='blog-container'>
+                <div className="content-container">{blogRecords}</div>
             </div>
         );
     }
