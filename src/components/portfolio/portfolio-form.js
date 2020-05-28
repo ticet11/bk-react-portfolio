@@ -39,7 +39,19 @@ export default class PortfolioForm extends Component {
     }
 
     deleteImage(imageType) {
-        console.log("deleteImage", imageType);
+        axios
+            .delete(
+                `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
+                { withCredentials: true }
+            )
+            .then(() => {
+                this.setState({
+                    [`${imageType}_url`]: "",
+                });
+            })
+            .catch((error) => {
+                console.error("delete image error", error);
+            });
     }
 
     componentDidUpdate() {
@@ -252,7 +264,8 @@ export default class PortfolioForm extends Component {
                 </div>
 
                 <div className="image-uploaders three-column">
-                    {this.state.thumb_image_url && this.state.editMode ? (
+                    {this.state.thumb_image_url &&
+                    this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
                             <img
                                 src={this.state.thumb_image_url}
@@ -260,8 +273,14 @@ export default class PortfolioForm extends Component {
                             />
                             <div className="image-removal-link">
                                 <a
-                                    onClick={() => this.deleteImage('thumb_image')}
-                                >Delete</a>
+                                    onClick={() =>
+                                        this.deleteImage(
+                                            "thumb_image"
+                                        )
+                                    }
+                                >
+                                    Delete
+                                </a>
                             </div>
                         </div>
                     ) : (
@@ -276,7 +295,8 @@ export default class PortfolioForm extends Component {
                             </div>
                         </DropzoneComponent>
                     )}
-                    {this.state.banner_image_url && this.state.editMode ? (
+                    {this.state.banner_image_url &&
+                    this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
                             <img
                                 src={this.state.banner_image_url}
@@ -284,8 +304,14 @@ export default class PortfolioForm extends Component {
                             />
                             <div className="image-removal-link">
                                 <a
-                                    onClick={() => this.deleteImage('banner_image')}
-                                >Delete</a>
+                                    onClick={() =>
+                                        this.deleteImage(
+                                            "banner_image"
+                                        )
+                                    }
+                                >
+                                    Delete
+                                </a>
                             </div>
                         </div>
                     ) : (
@@ -302,14 +328,15 @@ export default class PortfolioForm extends Component {
                     )}
                     {this.state.logo_url && this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
-                            <img
-                                src={this.state.logo_url}
-                                alt=""
-                            />
+                            <img src={this.state.logo_url} alt="" />
                             <div className="image-removal-link">
                                 <a
-                                    onClick={() => this.deleteImage('logo')}
-                                >Delete</a>
+                                    onClick={() =>
+                                        this.deleteImage("logo")
+                                    }
+                                >
+                                    Delete
+                                </a>
                             </div>
                         </div>
                     ) : (
