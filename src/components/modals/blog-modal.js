@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
-ReactModal.setAppElement('.app-wrapper')
+import BlogForm from "../blog/blog-form";
+
+ReactModal.setAppElement(".app-wrapper");
 
 export default class BlogModal extends Component {
     constructor(props) {
@@ -31,7 +33,7 @@ export default class BlogModal extends Component {
                     }}
                     style={this.customStyles}
                 >
-                    <h1>ModalBoy</h1>
+                    <BlogForm />
                 </ReactModal>
             </div>
         );
