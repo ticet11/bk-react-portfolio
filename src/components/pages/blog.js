@@ -17,8 +17,14 @@ export default class Blog extends Component {
 
     activateInfiniteScroll() {
         window.onscroll = () => {
-            console.log('onscroll')
-        }
+            if (
+                window.innerHeight +
+                    document.documentElement.scrollTop ===
+                document.documentElement.offsetHeight
+            ) {
+                console.log("get them posts");
+            }
+        };
     }
 
     getBlogItems() {
@@ -39,18 +45,17 @@ export default class Blog extends Component {
             });
     }
 
-
     componentWillMount() {
         this.getBlogItems();
     }
 
     render() {
-        const blogRecords = this.state.data.map(blogItem => {
+        const blogRecords = this.state.data.map((blogItem) => {
             return <BlogItem key={blogItem.id} blogItem={blogItem} />;
-          });
+        });
 
         return (
-            <div className='blog-container'>
+            <div className="blog-container">
                 <div className="content-container">{blogRecords}</div>
             </div>
         );
