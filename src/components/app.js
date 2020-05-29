@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrash, faSignOutAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faSignOutAlt, faEdit, faYinYang } from '@fortawesome/free-solid-svg-icons';
 
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -19,7 +19,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NavigationContainer from "./navigation/navigation-container";
 
-library.add( faSignOutAlt, faTrash, faEdit );
+library.add( faSignOutAlt, faTrash, faEdit, faYinYang );
 
 export default class App extends Component {
     constructor(props) {

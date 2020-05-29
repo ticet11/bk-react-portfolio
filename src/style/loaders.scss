@@ -1,0 +1,10 @@
+.content-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    color: $teal;
+    font-size: 2em;
+}
