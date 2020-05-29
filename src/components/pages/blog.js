@@ -13,11 +13,19 @@ export default class Blog extends Component {
             data: [],
             totalCount: 0,
             currentPage: 0,
+            isOpen: false,
         };
 
         this.getBlogItems = this.getBlogItems.bind(this);
         this.onScroll = this.onScroll.bind(this);
         window.addEventListener("scroll", this.onScroll, false);
+        this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
+    }
+
+    handleNewBlogClick() {
+        this.setState({
+            isOpen: true,
+        });
     }
 
     onScroll() {
@@ -77,6 +85,10 @@ export default class Blog extends Component {
 
         return (
             <div className="blog-container">
+                <BlogModal isOpen={this.state.isOpen} />
+                <div className="new-blog-link">
+                    <a onClick={this.handleNewBlogClick}>OpenModal</a>
+                </div>
                 <div className="content-container">{blogRecords}</div>
 
                 {this.state.isLoading ? (
@@ -86,7 +98,6 @@ export default class Blog extends Component {
                     </div>
                 ) : null}
 
-                <BlogModal />
             </div>
         );
     }
