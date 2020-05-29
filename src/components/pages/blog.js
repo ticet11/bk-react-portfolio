@@ -20,12 +20,16 @@ export default class Blog extends Component {
 
     activateInfiniteScroll() {
         window.onscroll = () => {
+            if (this.state.isLoading || this.state.data.length === this.state.totalCount) {
+                return;
+            }
             if (
                 window.innerHeight +
                     document.documentElement.scrollTop ===
                 document.documentElement.offsetHeight
             ) {
                 console.log("get them posts");
+                this.getBlogItems();
             }
         };
     }
@@ -36,14 +40,17 @@ export default class Blog extends Component {
         });
         axios
             .get(
-                "https://brikozub.devcamp.space/portfolio/portfolio_blogs",
+                `https://brikozub.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`,
                 {
                     withCredentials: true,
                 }
             )
             .then((response) => {
+                console.log("getting", response.data);
                 this.setState({
-                    data: response.data.portfolio_blogs,
+                    data: this.state.data.concat(
+                        response.data.portfolio_blogs
+                    ),
                     totalCount: response.data.meta.total_records,
                     isLoading: false,
                 });
