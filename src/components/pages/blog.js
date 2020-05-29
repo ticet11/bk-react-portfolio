@@ -20,6 +20,13 @@ export default class Blog extends Component {
         this.onScroll = this.onScroll.bind(this);
         window.addEventListener("scroll", this.onScroll, false);
         this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
+        this.handleModalClose = this.handleModalClose.bind(this);
+    }
+
+    handleModalClose() {
+        this.setState({
+            isOpen: false,
+        });
     }
 
     handleNewBlogClick() {
@@ -85,7 +92,10 @@ export default class Blog extends Component {
 
         return (
             <div className="blog-container">
-                <BlogModal isOpen={this.state.isOpen} />
+                <BlogModal
+                    isOpen={this.state.isOpen}
+                    handleModalClose={this.handleModalClose}
+                />
                 <div className="new-blog-link">
                     <a onClick={this.handleNewBlogClick}>OpenModal</a>
                 </div>
@@ -97,7 +107,6 @@ export default class Blog extends Component {
                         Loading...
                     </div>
                 ) : null}
-
             </div>
         );
     }
