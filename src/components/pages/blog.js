@@ -3,6 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import BlogItem from "../blog/blog-item";
+import BlogModal from "../modals/blog-modal";
 
 export default class Blog extends Component {
     constructor() {
@@ -61,7 +62,7 @@ export default class Blog extends Component {
             });
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.getBlogItems();
     }
 
@@ -84,6 +85,8 @@ export default class Blog extends Component {
                         Loading...
                     </div>
                 ) : null}
+
+                <BlogModal />
             </div>
         );
     }
