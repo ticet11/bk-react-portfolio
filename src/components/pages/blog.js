@@ -63,7 +63,6 @@ export default class Blog extends Component {
                 }
             )
             .then((response) => {
-                console.log("getting", response.data);
                 this.setState({
                     data: this.state.data.concat(
                         response.data.portfolio_blogs
