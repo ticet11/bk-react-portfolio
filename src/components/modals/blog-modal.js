@@ -22,7 +22,16 @@ export default class BlogModal extends Component {
                 backgroundColor: "rgba(1, 1, 1, 0.75)",
             },
         };
+
+        this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
+            this
+        );
     }
+
+    handleSuccessfulFormSubmission(blog) {
+        console.log("Bob Log's Law Blog", blog);
+    }
+
     render() {
         return (
             <div>
@@ -33,7 +42,7 @@ export default class BlogModal extends Component {
                     }}
                     style={this.customStyles}
                 >
-                    <BlogForm />
+                    <BlogForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission} />
                 </ReactModal>
             </div>
         );
