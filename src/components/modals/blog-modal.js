@@ -29,7 +29,7 @@ export default class BlogModal extends Component {
     }
 
     handleSuccessfulFormSubmission(blog) {
-        console.log("Bob Log's Law Blog", blog);
+        this.props.handleSuccessfulNewBlogSubmission(blog);
     }
 
     render() {
@@ -42,7 +42,11 @@ export default class BlogModal extends Component {
                     }}
                     style={this.customStyles}
                 >
-                    <BlogForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission} />
+                    <BlogForm
+                        handleSuccessfulFormSubmission={
+                            this.handleSuccessfulFormSubmission
+                        }
+                    />
                 </ReactModal>
             </div>
         );
