@@ -109,11 +109,8 @@ export default class Blog extends Component {
                     }
                 />
                 <div className="new-blog-link">
-                    <a
-                        style={{ fontSize: "2.5em", fontWeight: 600 }}
-                        onClick={this.handleNewBlogClick}
-                    >
-                        +
+                    <a onClick={this.handleNewBlogClick}>
+                        <FontAwesomeIcon icon="edit" /> New Post
                     </a>
                 </div>
                 <div className="content-container">{blogRecords}</div>
