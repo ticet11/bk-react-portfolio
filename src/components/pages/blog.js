@@ -29,7 +29,7 @@ export default class Blog extends Component {
     handleSuccessfulNewBlogSubmission(blog) {
         this.setState({
             isOpen: false,
-            blogItems: [blog].concat(this.state.blogItems),
+            data: [blog].concat(this.state.data),
         });
     }
 

@@ -44,7 +44,6 @@ export default class BlogForm extends Component {
                 console.error("handleSubmit Blog", error);
             });
 
-        this.props.handleSuccessfulFormSubmission(this.state);
         event.preventDefault();
     }
 
