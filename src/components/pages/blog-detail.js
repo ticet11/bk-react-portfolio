@@ -15,7 +15,16 @@ export default class BlogDetail extends Component {
             editMode: false,
         };
 
+        this.handleFeaturedImageDelete = this.handleFeaturedImageDelete.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
+    }
+
+    handleFeaturedImageDelete() {
+        this.setState({
+            blogItem: {
+                featured_image: '',
+            }
+        })
     }
 
     handleEditClick() {
@@ -56,6 +65,7 @@ export default class BlogDetail extends Component {
             if (this.state.editMode) {
                 return (
                     <BlogForm
+                        handleFeaturedImageDelete={this.handleFeaturedImageDelete}
                         editMode={this.state.editMode}
                         blog={this.state.blogItem}
                     />
