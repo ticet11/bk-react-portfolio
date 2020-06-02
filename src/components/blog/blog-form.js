@@ -9,7 +9,7 @@ export default class BlogForm extends Component {
         super(props);
 
         this.state = {
-            id: '',
+            id: "",
             title: "",
             blog_status: "",
             content: "",
@@ -30,13 +30,13 @@ export default class BlogForm extends Component {
         this.featuredImageRef = React.createRef();
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if (this.props.editMode) {
             this.setState({
                 id: this.props.blog.id,
                 title: this.props.blog.title,
-                blog_status: this.props.blog.blog_status
-              });
+                blog_status: this.props.blog.blog_status,
+            });
         }
     }
 
@@ -150,12 +150,19 @@ export default class BlogForm extends Component {
                         handleRichTextEditorChange={
                             this.handleRichTextEditorChange
                         }
+                        editMode={this.props.editMode}
+                        contentToEdit={
+                            this.props.editMode &&
+                            this.props.blog.content
+                                ? this.props.blog.content
+                                : null
+                        }
                     />
                 </div>
 
                 <div className="image-uploaders">
                     <DropzoneComponent
-                    ref={this.featuredImageRef}
+                        ref={this.featuredImageRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
                         eventHandlers={this.handleFeaturedImageDrop()}
