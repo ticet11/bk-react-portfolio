@@ -14,6 +14,9 @@ export default class BlogForm extends Component {
             blog_status: "",
             content: "",
             featured_image: "",
+            apiUrl:
+                "https://brikozub.devcamp.space/portfolio/portfolio_blogs",
+            apiAction: "post",
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +41,7 @@ export default class BlogForm extends Component {
                 { withCredentials: true }
             )
             .then((response) => {
-                console.log(response)
+                console.log(response);
                 this.props.handleFeaturedImageDelete();
             })
             .catch((error) => {
@@ -52,6 +55,9 @@ export default class BlogForm extends Component {
                 id: this.props.blog.id,
                 title: this.props.blog.title,
                 blog_status: this.props.blog.blog_status,
+                content: this.props.blog.content,
+                apiUrl: `https://brikozub.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
+                apiAction: "patch",
             });
         }
     }
@@ -106,11 +112,12 @@ export default class BlogForm extends Component {
     }
 
     handleSubmit(event) {
-        Axios.post(
-            "https://brikozub.devcamp.space/portfolio/portfolio_blogs",
-            this.buildForm(),
-            { withCredentials: true }
-        )
+        axios({
+            method: this.state.apiAction,
+            url: this.state.apiUrl,
+            data: this.buildForm(),
+            withCredentials: true,
+        })
             .then((response) => {
                 if (this.state.featured_image) {
                     this.featuredImageRef.current.dropzone.removeAllFiles();
@@ -121,10 +128,16 @@ export default class BlogForm extends Component {
                     content: "",
                     featured_image: "",
                 });
-
-                this.props.handleSuccessfulFormSubmission(
-                    response.data.portfolio_blog
-                );
+                if (this.props.editMode) {
+                    // Update blog detail
+                    this.props.handleUpdateFormSubmission(
+                        response.data.portfolio_blog
+                    );
+                } else {
+                    this.props.handleSuccessfulFormSubmission(
+                        response.data.portfolio_blog
+                    );
+                }
             })
             .catch((error) => {
                 console.error("handleSubmit Blog", error);
