@@ -41,11 +41,10 @@ export default class BlogForm extends Component {
                 { withCredentials: true }
             )
             .then((response) => {
-                console.log(response);
                 this.props.handleFeaturedImageDelete();
             })
             .catch((error) => {
-                console.log("deleteImage error", error);
+                console.error("deleteImage error", error);
             });
     }
 
