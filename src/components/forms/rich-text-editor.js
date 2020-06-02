@@ -37,7 +37,7 @@ export default class RichTextEditor extends Component {
         reader.readAsDataURL(file);
         reader.onload = () => callback(reader.result);
         reader.onerror = (error) => {
-            console.error("base64 error", error);
+            // console.error("base64 error", error);
         };
     }
 
