@@ -15,6 +15,8 @@ export default class RichTextEditor extends Component {
         this.onEditorStateChange = this.onEditorStateChange.bind(
             this
         );
+        this.getBase64 = this.getBase64.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
     }
 
     onEditorStateChange(editorState) {
@@ -30,8 +32,21 @@ export default class RichTextEditor extends Component {
         );
     }
 
+    getBase64(file, callback) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => callback(reader.result);
+        reader.onerror = (error) => {
+            console.error("base64 error", error);
+        };
+    }
+
     uploadFile(file) {
-        console.log("upload flile", file);
+        return new Promise((resolve, reject) => {
+            this.getBase64(file, (data) =>
+                resolve({ data: { link: data } })
+            );
+        });
     }
 
     render() {
@@ -39,21 +54,11 @@ export default class RichTextEditor extends Component {
             <div>
                 <Editor
                     toolbar={{
-                        inline: {
-                            inDropdown: true,
-                        },
-                        list: {
-                            inDropdown: true,
-                        },
-                        textAlign: {
-                            inDropdown: true,
-                        },
-                        link: {
-                            inDropdown: true,
-                        },
-                        history: {
-                            inDropdown: true,
-                        },
+                        inline: { inDropdown: true },
+                        list: { inDropdown: true },
+                        textAlign: { inDropdown: true },
+                        link: { inDropdown: true },
+                        history: { inDropdown: true },
                         image: {
                             uploadCallback: this.uploadFile,
                             alt: {
