@@ -1,3 +1,5 @@
+// TODO: change image
+// TODO: add real bio
 import React from "react";
 
 export default function About() {

@@ -12,5 +12,28 @@
         align-items: center;
         flex-direction: column;
         padding: 100px;
+
+        .contact-bullet-points {
+            .bullet-point-group {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    width: 2em;
+
+                    a {
+                        font-size: 2em;
+                        color: $teal;
+                        text-decoration: none;
+                    }
+                }
+
+                .text {
+                    font-size: 1.5em;
+                    font-weight: 900;
+                    margin-left: 25px;
+                }
+            }
+        }
     }
 }
