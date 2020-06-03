@@ -20,7 +20,6 @@ export default class PortfolioDetail extends React.Component {
                 `https://brikozub.devcamp.space/portfolio/portfolio_items/${this.props.match.params.slug}`
             )
             .then((response) => {
-                console.log(response);
                 this.setState({
                     portfolioItem: response.data.portfolio_item,
                 });
@@ -40,10 +39,39 @@ export default class PortfolioDetail extends React.Component {
             name,
             url,
         } = this.state.portfolioItem;
+
+        const bannerStyles = {
+            backgroundImage: "url(" + banner_image_url + ")",
+            backgroundSize: "cover",
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center'
+        }
+
+        const logoStyles = {
+            width: '200px',
+        }
         return (
             <div>
-                <h2>{name}</h2>
-                <p>{description}</p>
+                <div className="portfolio-detail-wrapper">
+                    <div style={bannerStyles} className="banner">
+                        <img style={logoStyles} src={logo_url} alt="" />
+                    </div>
+                    <div className="portfolio-detail-description-wrapper">
+                        <div className="description">
+                            {description}
+                        </div>
+                    </div>
+
+                    <div className="bottom-content-wrapper">
+                        <a
+                            className="site-link"
+                            target="_blank"
+                            href={url}
+                        >
+                            Visit {name}
+                        </a>
+                    </div>
+                </div>
             </div>
         );
     }
