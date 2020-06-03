@@ -16,20 +16,26 @@ const BlogItem = (props) => {
             <Link to={`/b/${id}`}>
                 <h1>{title}</h1>
             </Link>
-            <div>
-                <Truncate lines={5} ellipsis={
-                    <span>
-                        ...<Link to={`/b/${id}`} >Read More</Link>
-                    </span>
-                } >
-                    {striptags(content)}
-                </Truncate>
+            <div className="blog-content-wrapper">
+                <img
+                    style={{ width: "150px", height: '150px' }}
+                    src={featured_image_url}
+                    alt=""
+                />
+                <div>
+                    <Truncate
+                        lines={5}
+                        ellipsis={
+                            <span>
+                                ...
+                                <Link to={`/b/${id}`}>Read More</Link>
+                            </span>
+                        }
+                    >
+                        {striptags(content)}
+                    </Truncate>
+                </div>
             </div>
-            <img
-                style={{ width: "200px" }}
-                src={featured_image_url}
-                alt=""
-            />
         </div>
     );
 };
