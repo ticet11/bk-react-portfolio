@@ -32,7 +32,6 @@ export default class PortfolioDetail extends React.Component {
 
     render() {
         const {
-            id,
             banner_image_url,
             thumb_image_url,
             logo_url,
@@ -44,6 +43,7 @@ export default class PortfolioDetail extends React.Component {
         return (
             <div>
                 <h2>{name}</h2>
+                <p>{description}</p>
             </div>
         );
     }
