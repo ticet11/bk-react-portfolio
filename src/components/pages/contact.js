@@ -24,15 +24,9 @@ export default function Contact() {
                                 />
                             </a>
                         </div>
-                        <div className="text">LinkedIn.com/in/briankozub</div>
-                    </div>
-                    <div className="bullet-point-group">
-                        <div className="icon">
-                            <a href="mailto:brian@briankozub.com">
-                                <FontAwesomeIcon icon="paper-plane" />
-                            </a>
+                        <div className="text">
+                            LinkedIn.com/in/briankozub
                         </div>
-                        <div className="text">brian@briankozub.com</div>
                     </div>
                     <div className="bullet-point-group">
                         <div className="icon">
@@ -46,13 +40,21 @@ export default function Contact() {
                     </div>
                     <div className="bullet-point-group">
                         <div className="icon">
+                            <a href="mailto:brian@briankozub.com">
+                                <FontAwesomeIcon icon="paper-plane" />
+                            </a>
+                        </div>
+                        <div className="text">
+                            brian@briankozub.com
+                        </div>
+                    </div>
+                    <div className="bullet-point-group">
+                        <div className="icon">
                             <a href="tel:385-722-0126">
                                 <FontAwesomeIcon icon="mobile-alt" />
                             </a>
                         </div>
-                        <div className="text">
-                            (385) 722-0126
-                        </div>
+                        <div className="text">(385) 722-0126</div>
                     </div>
                     <div className="bullet-point-group">
                         <div className="icon">
@@ -61,7 +63,7 @@ export default function Contact() {
                             </a>
                         </div>
                         <div className="text">
-                            Sandy, UT
+                            Sandy, UT (Open to remote opportunities)
                         </div>
                     </div>
                 </div>
