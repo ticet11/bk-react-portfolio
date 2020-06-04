@@ -11,6 +11,7 @@ export default class PortfolioContainer extends Component {
             pageTitle: "Welcome to my portfolio. Do you love it?",
             isLoading: false,
             data: [],
+            filter: "",
         };
 
         this.handleFilter = this.handleFilter.bind(this);
@@ -20,8 +21,14 @@ export default class PortfolioContainer extends Component {
     handleFilter(filter) {
         if (filter === "CLEAR_FILTERS") {
             this.getPortfolioItems();
+            this.setState({
+                filter: "",
+            });
         } else {
             this.getPortfolioItems(filter);
+            this.setState({
+                filter: filter,
+            });
         }
     }
 
@@ -67,38 +74,41 @@ export default class PortfolioContainer extends Component {
 
         return (
             <div className="homepage-wrapper">
-                <div className="filter-links">
-                    <button
-                        className="btn"
-                        onClick={() => this.handleFilter("eCommerce")}
-                    >
-                        ecommerce
-                    </button>
-                    <button
-                        className="btn"
-                        onClick={() =>
-                            this.handleFilter("Scheduling")
-                        }
-                    >
-                        Social Media
-                    </button>
-                    <button
-                        className="btn"
-                        onClick={() =>
-                            this.handleFilter("Enterprise")
-                        }
-                    >
-                        Events
-                    </button>
-                    <button
-                        className="btn"
-                        onClick={() =>
-                            this.handleFilter("CLEAR_FILTERS")
-                        }
-                    >
-                        All
-                    </button>
-                </div>
+                {this.state.filter === "" ? (
+                    <div className="filter-links">
+                        <button
+                            className="btn"
+                            onClick={() => this.handleFilter("HC")}
+                        >
+                            HTML and CSS 
+                        </button>
+                        <button
+                            className="btn"
+                            onClick={() =>
+                                this.handleFilter("JavaScript")
+                            }
+                        >
+                            JavaScript
+                        </button>
+                        <button
+                            className="btn"
+                            onClick={() => this.handleFilter("React")}
+                        >
+                            React.js
+                        </button>
+                    </div>
+                ) : (
+                    <div className="filter-links">
+                        <button
+                            className="btn"
+                            onClick={() =>
+                                this.handleFilter("CLEAR_FILTERS")
+                            }
+                        >
+                            All
+                        </button>
+                    </div>
+                )}
                 <div className="portfolio-items-wrapper">
                     {this.portfolioItems()}
                 </div>

@@ -21,10 +21,9 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            width: 100%;
             text-align: center;
-            padding-left: 100px;
-            padding-right: 100px;
-
+            
             .subtitle {
                 transition: 1s ease-in-out;
                 color: transparent;
@@ -35,10 +34,10 @@
             font-weight: 400;
         }
 
-        .logo-wrapper img {
-            width: 50%;
-            margin-bottom: 20px;
-        }
+        // .logo-wrapper img {
+        //     width: 50%;
+        //     margin-bottom: 20px;
+        // }
     }
 }
 
