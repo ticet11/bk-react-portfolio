@@ -247,8 +247,8 @@ export default class PortfolioForm extends Component {
                     >
                         <option value="HC">Select Category</option>
                         <option value="HC">HTML and CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="React">React.js</option>
+                        <option value="JavaScript">JavaScript and React.js</option>
+                        <option value="Lua">Lua and Love2D</option>
                     </select>
                 </div>
                 <div className="one-column">
