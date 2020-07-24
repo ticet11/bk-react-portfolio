@@ -16,26 +16,35 @@ export default function About() {
                 ></div>
                 <div className="right-column bio-content">
                     <p>
-                        Hi, my name is Brian. I'm currently attending
-                        Bottega coding bootcamp. I have a rich job
-                        history, in several different industries. I
-                        think you'll find this gives me an
-                        interesting edge in solving problems when
-                        programming.
+                        I don't know the answer to every question, but
+                        do know how to find those answers and I love
+                        the process. I love learning new skills and
+                        finding new ways to solve problems. Recently,
+                        that has meant exploring game development in
+                        lua and Love2D.
                     </p>
                     <p>
-                        Since beginning the program, I've come to
-                        really enjoy working with databases and REST
-                        APIs, using JavaScript and Python.
+                        I have been exploring the bounds of technology
+                        since I was a little kid, taking old
+                        electronics apart or figuring out how to get
+                        Red Alert on the old Windows 95 computer.
+                    </p>
+                    <p>
+                        Due to my diverse job history, I have an
+                        understanding of several varied industries
+                        that allows me to understand problems from
+                        many perspectives. My solution to a problem
+                        will likely be different from yours and I
+                        think that's an incredible asset in
+                        development.
                     </p>
 
                     <p>These are some of my other skills:</p>
 
                     <ul>
-                        <li>
-                            Databases, including MongoDB and SQL
-                        </li>
-                        <li>React JS</li>
+                        <li>Databases, including MongoDB and SQL</li>
+                        <li>React.js</li>
+                        <li>Lua and Love2D</li>
                         <li>HTML, CSS, SCSS</li>
                         <li>Git, mostly in GitHub</li>
                         <li>
@@ -49,8 +58,12 @@ export default function About() {
                     <p>
                         In my spare time, if I’m not coding, I like
                         fixing cars and motorcycles and watching
-                        movies. I drive a Prius and I like the Big
-                        Lewbowski.
+                        movies. You can check out what movies I've
+                        been watching on my{" "}
+                        <a href="https://letterboxd.com/ticet11/">
+                            letterboxd account
+                        </a>
+                        .
                     </p>
                 </div>
             </div>
