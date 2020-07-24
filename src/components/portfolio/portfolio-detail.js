@@ -43,19 +43,24 @@ export default class PortfolioDetail extends React.Component {
         const bannerStyles = {
             backgroundImage: "url(" + banner_image_url + ")",
             backgroundSize: "cover",
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center center'
-        }
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+        };
 
         const logoStyles = {
-            width: '200px',
-        }
+            width: "200px",
+        };
         return (
             <div>
                 <div className="portfolio-detail-wrapper">
                     <div style={bannerStyles} className="banner">
-                        <img style={logoStyles} src={logo_url} alt="" />
+                        <img
+                            style={logoStyles}
+                            src={logo_url}
+                            alt=""
+                        />
                     </div>
+                    <h1>{name}</h1>
                     <div className="portfolio-detail-description-wrapper">
                         <div className="description">
                             {description}
