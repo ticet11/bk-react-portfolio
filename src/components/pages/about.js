@@ -41,7 +41,7 @@ export default function About() {
 
                     <p>These are some of my other skills:</p>
 
-                    <ul>
+                    <ul className='skills-container'>
                         <li>Databases, including MongoDB and SQL</li>
                         <li>React.js</li>
                         <li>Lua and Love2D</li>
