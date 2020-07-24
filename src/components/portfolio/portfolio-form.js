@@ -11,7 +11,7 @@ export default class PortfolioForm extends Component {
 
         this.state = {
             name: "",
-            description: "",
+            description: ``,
             category: "HC",
             position: "",
             url: "",
@@ -71,7 +71,7 @@ export default class PortfolioForm extends Component {
             this.setState({
                 id: id,
                 name: name || "",
-                description: description || "",
+                description: description || ``,
                 category: category || "HC",
                 position: position || "",
                 url: url || "",
@@ -179,7 +179,7 @@ export default class PortfolioForm extends Component {
 
                 this.setState({
                     name: "",
-                    description: "",
+                    description: ``,
                     category: "HC",
                     position: "",
                     url: "",
