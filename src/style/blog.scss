@@ -26,11 +26,11 @@
         a {
             font-size: 2em;
             cursor: pointer;
-            color: $teal;
+            color: $main;
             transition: 0.5s ease-in-out;
 
             &:hover {
-                color: $dark-teal
+                color: $dark-main
             }
         }
     }
@@ -42,11 +42,11 @@
 
         a {
             text-decoration: none;
-            color: $teal;
+            color: $main;
             transition: 0.5s ease-in-out;
 
             &:hover {
-                color: $dark-teal;
+                color: $dark-main;
             }
         }
 
