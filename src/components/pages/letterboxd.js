@@ -23,4 +23,4 @@ const Letterboxd = () => {
     );
 };
 
-export default letterboxd;
+export default Letterboxd;
