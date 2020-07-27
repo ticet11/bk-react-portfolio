@@ -1,0 +1,104 @@
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 40px;
+}
+.card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    width: 600px;
+
+    .card {
+        padding: 2rem 4rem;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+        margin-bottom: 2rem;
+        background-color: #e0dec0;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            text-align: center;
+        }
+
+        img {
+            max-height: 300px;
+            border: 5px solid #000000bf;
+            border-radius: 3px;
+            align-self: center;
+        }
+    }
+}
+.dbButton {
+    display: flex;
+    justify-content: right;
+}
+.dbbtn {
+    background-color: #000000bf;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid #000000bf;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+
+    .dbbtn:hover {
+        background-color: #000000d9;
+    }
+}
+
+.button {
+    background-color: #000000bf;
+
+    padding: 1rem 2rem;
+    border: 1px solid #000000bf;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid #e0dec0;
+    background-color: #e0dec0;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background-color: #000000bf;
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid #000000bf;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+}
+.button:hover {
+    background-color: #000000d9;
+}
+
+@media (min-width: 786px) {
+    .input {
+        margin-bottom: 0;
+    }
+
+    .card {
+        padding: 2rem 4rem;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        margin-bottom: 0.5rem;
+    }
+
+
+}

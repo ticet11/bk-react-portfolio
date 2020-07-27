@@ -22,25 +22,33 @@ const Letterboxd = () => {
     }, []);
 
     const createMarkup = (contentText) => {
-        return {__html: contentText}
-    }
+        return { __html: contentText };
+    };
 
     return (
-        <div>
-            {isLoading
-                ? "Loading..."
-                : feed.map((item) => {
-                      console.log(item);
-                      return (
-                          <div
-                              key={item.isoDate}
-                              className="movie-card"
-                          >
-                              <h2>{item.title}</h2>
-                              <div className='description' dangerouslySetInnerHTML={createMarkup(item.content)}></div>
-                          </div>
-                      );
-                  })}
+        <div className="card-container">
+            <h1>What Have I Been Watching?</h1>
+            <div className="card-list">
+                {isLoading
+                    ? "Loading..."
+                    : feed.map((item) => {
+                          console.log(item);
+                          return (
+                              <div
+                                  key={item.isoDate}
+                                  className="card"
+                              >
+                                  <h2 className='title'>{item.title}</h2>
+                                  <div
+                                      className="description"
+                                      dangerouslySetInnerHTML={createMarkup(
+                                          item.content
+                                      )}
+                                  ></div>
+                              </div>
+                          );
+                      })}
+            </div>
         </div>
     );
 };
