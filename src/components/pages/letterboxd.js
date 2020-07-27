@@ -27,7 +27,7 @@ const Letterboxd = () => {
 
     return (
         <div className="card-container">
-            <h1>What Have I Been Watching?</h1>
+            <h1 className='header'>What Have I Been Watching?</h1>
             <div className="card-list">
                 {isLoading
                     ? "Loading..."
@@ -38,7 +38,25 @@ const Letterboxd = () => {
                                   key={item.isoDate}
                                   className="card"
                               >
-                                  <h2 className='title'>{item.title}</h2>
+                                  <div className="title-wrapper">
+                                      <a href={item.link} target='_blank'>
+                                          <h2 className="title">
+                                              {item.title.replace(
+                                                  " (contains spoilers)",
+                                                  ""
+                                              )}
+                                          </h2>
+                                      </a>
+                                      <p className="review-date">
+                                          Review published:{" "}
+                                          <i>
+                                              {item.pubDate.slice(
+                                                  0,
+                                                  -15
+                                              )}
+                                          </i>
+                                      </p>
+                                  </div>
                                   <div
                                       className="description"
                                       dangerouslySetInnerHTML={createMarkup(
