@@ -25,41 +25,47 @@ const Letterboxd = () => {
         return { __html: contentText };
     };
 
-    const feedMap = () => {
-        feed.map((item) => {
-            console.log(item);
-            return (
-                <div key={item.isoDate} className="card">
-                    <div className="title-wrapper">
-                        <a href={item.link} target="_blank">
-                            <h2 className="title">
-                                {item.title.replace(
-                                    " (contains spoilers)",
-                                    ""
-                                )}
-                            </h2>
-                        </a>
-                        <p className="review-date">
-                            Review published:{" "}
-                            <i>{item.pubDate.slice(0, -15)}</i>
-                        </p>
-                    </div>
-                    <div
-                        className="description"
-                        dangerouslySetInnerHTML={createMarkup(
-                            item.content
-                        )}
-                    ></div>
-                </div>
-            );
-        });
-    };
-
     return (
         <div className="card-container">
-            <h1 className="header">What Have I Been Watching?</h1>
+            <h1 className='header'>What Have I Been Watching?</h1>
             <div className="card-list">
-                {isLoading ? "Loading..." : feedMap()}
+                {isLoading
+                    ? "Loading..."
+                    : feed.map((item) => {
+                          console.log(item);
+                          return (
+                              <div
+                                  key={item.isoDate}
+                                  className="card"
+                              >
+                                  <div className="title-wrapper">
+                                      <a href={item.link} target='_blank'>
+                                          <h2 className="title">
+                                              {item.title.replace(
+                                                  " (contains spoilers)",
+                                                  ""
+                                              )}
+                                          </h2>
+                                      </a>
+                                      <p className="review-date">
+                                          Review published:{" "}
+                                          <i>
+                                              {item.pubDate.slice(
+                                                  0,
+                                                  -15
+                                              )}
+                                          </i>
+                                      </p>
+                                  </div>
+                                  <div
+                                      className="description"
+                                      dangerouslySetInnerHTML={createMarkup(
+                                          item.content
+                                      )}
+                                  ></div>
+                              </div>
+                          );
+                      })}
             </div>
         </div>
     );
