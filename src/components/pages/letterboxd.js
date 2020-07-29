@@ -25,18 +25,25 @@ const Letterboxd = () => {
         return { __html: contentText };
     };
 
-    const starSlicer = (title, method) => {
+    const titleSlicer = (title, method) => {
         let starIndex = title.indexOf(" - ");
-        console.log(starIndex);
-        // title.indexOf(" - ★") === -1
-        //     ? (starIndex = title.indexOf(" - ½"))
-        //     : (starIndex = -1);
-        if (method === "titleOnly" && starIndex !== -1) {
-            return title.slice(0, starIndex + 1);
-        } else if (method === "titleOnly") {
-            return title.replace(" (contains spoilers)", "");
+        if (method === "title" && starIndex !== -1) {
+            return title.slice(0, starIndex - 6);
+        } else if (method === "title") {
+            return title
+                .replace(" (contains spoilers)", "")
+                .slice(0, -6);
         }
-        if (method === "starsOnly" && starIndex !== -1) {
+        if (method === "date" && starIndex !== -1) {
+            return title
+                .replace("(contains spoilers)", "")
+                .slice(starIndex - 4, starIndex);
+        } else if (method === "date") {
+            return title
+                .replace(" (contains spoilers)", "")
+                .slice(-4);
+        }
+        if (method === "stars" && starIndex !== -1) {
             return title
                 .slice(starIndex + 3, -1)
                 .replace(" (contains spoilers", "");
@@ -62,16 +69,22 @@ const Letterboxd = () => {
                                           target="_blank"
                                       >
                                           <h2 className="title">
-                                              {starSlicer(
+                                              {titleSlicer(
                                                   item.title,
-                                                  "titleOnly"
+                                                  "title"
                                               )}
                                           </h2>
                                       </a>
-                                      <p className="star-rating">
-                                          {starSlicer(
+                                      <p>
+                                          {titleSlicer(
                                               item.title,
-                                              "starsOnly"
+                                              "date"
+                                          )}
+                                      </p>
+                                      <p className="star-rating">
+                                          {titleSlicer(
+                                              item.title,
+                                              "stars"
                                           )}
                                       </p>
                                       <p className="review-date">
