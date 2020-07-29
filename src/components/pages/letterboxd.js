@@ -13,11 +13,9 @@ const Letterboxd = () => {
             function (err, feed) {
                 if (err) throw err;
                 setFeed(feed.items);
+                setIsLoading(false)
             }
         );
-        if (feed !== []) {
-            setIsLoading(false);
-        }
         return () => "finished";
     }, []);
 
@@ -81,20 +79,19 @@ const Letterboxd = () => {
 
     return (
         <div className="card-container">
-            <h1 className="header">What Have I Been Watching?</h1>
             <div className="card-list">
+            <h1 className="header">What Have I Been Watching?</h1>
                 {isLoading
-                    ? "Loading..."
+                    ? <h1 className='card'>Loading...</h1>
                     : feed.map((item) => {
                           console.log(item);
-                          {
-                              insertTitle(item);
-                          }
+
                           return (
                               <div
                                   key={item.isoDate}
                                   className="card"
                               >
+                                  {insertTitle(item)}
                                   <div
                                       className="description"
                                       dangerouslySetInnerHTML={createMarkup(
