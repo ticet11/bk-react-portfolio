@@ -63,30 +63,32 @@ const Letterboxd = () => {
                                   key={item.isoDate}
                                   className="card"
                               >
-                                  <div className="title-wrapper">
-                                      <a
-                                          href={item.link}
-                                          target="_blank"
-                                      >
-                                          <h2 className="title">
+                                  <div className="upper-card">
+                                      <div className="title-wrapper">
+                                          <a
+                                              href={item.link}
+                                              target="_blank"
+                                          >
+                                              <h2 className="title">
+                                                  {titleSlicer(
+                                                      item.title,
+                                                      "title"
+                                                  )}
+                                              </h2>
+                                          </a>
+                                          <p className="release-date">
                                               {titleSlicer(
                                                   item.title,
-                                                  "title"
+                                                  "date"
                                               )}
-                                          </h2>
-                                      </a>
-                                      <p>
-                                          {titleSlicer(
-                                              item.title,
-                                              "date"
-                                          )}
-                                      </p>
-                                      <p className="star-rating">
-                                          {titleSlicer(
-                                              item.title,
-                                              "stars"
-                                          )}
-                                      </p>
+                                          </p>
+                                          <p className="star-rating">
+                                              {titleSlicer(
+                                                  item.title,
+                                                  "stars"
+                                              )}
+                                          </p>
+                                      </div>
                                       <p className="review-date">
                                           Review published:{" "}
                                           <i>
