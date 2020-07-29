@@ -21,8 +21,13 @@ const Letterboxd = () => {
         return () => "finished";
     }, []);
 
-    const createMarkup = (contentText) => {
-        return { __html: contentText };
+    const createMarkup = (contentText, id) => {
+        const newContentText =
+            contentText.slice(0, 3) +
+            ` id="${id}"` +
+            contentText.slice(3);
+
+        return { __html: newContentText };
     };
 
     const titleSlicer = (title, method) => {
@@ -50,6 +55,30 @@ const Letterboxd = () => {
         }
     };
 
+    const insertTitle = (item) => {
+        return (
+            <div className="upper-card">
+                <div className="title-wrapper">
+                    <a href={item.link} target="_blank">
+                        <h2 className="title">
+                            {titleSlicer(item.title, "title")}
+                        </h2>
+                    </a>
+                    <p className="release-date">
+                        {titleSlicer(item.title, "date")}
+                    </p>
+                    <p className="star-rating">
+                        {titleSlicer(item.title, "stars")}
+                    </p>
+                </div>
+                <p className="review-date">
+                    Review published:{" "}
+                    <i>{item.pubDate.slice(0, -15)}</i>
+                </p>
+            </div>
+        );
+    };
+
     return (
         <div className="card-container">
             <h1 className="header">What Have I Been Watching?</h1>
@@ -58,51 +87,19 @@ const Letterboxd = () => {
                     ? "Loading..."
                     : feed.map((item) => {
                           console.log(item);
+                          {
+                              insertTitle(item);
+                          }
                           return (
                               <div
                                   key={item.isoDate}
                                   className="card"
                               >
-                                  <div className="upper-card">
-                                      <div className="title-wrapper">
-                                          <a
-                                              href={item.link}
-                                              target="_blank"
-                                          >
-                                              <h2 className="title">
-                                                  {titleSlicer(
-                                                      item.title,
-                                                      "title"
-                                                  )}
-                                              </h2>
-                                          </a>
-                                          <p className="release-date">
-                                              {titleSlicer(
-                                                  item.title,
-                                                  "date"
-                                              )}
-                                          </p>
-                                          <p className="star-rating">
-                                              {titleSlicer(
-                                                  item.title,
-                                                  "stars"
-                                              )}
-                                          </p>
-                                      </div>
-                                      <p className="review-date">
-                                          Review published:{" "}
-                                          <i>
-                                              {item.pubDate.slice(
-                                                  0,
-                                                  -15
-                                              )}
-                                          </i>
-                                      </p>
-                                  </div>
                                   <div
                                       className="description"
                                       dangerouslySetInnerHTML={createMarkup(
-                                          item.content
+                                          item.content,
+                                          item.guid
                                       )}
                                   ></div>
                               </div>
