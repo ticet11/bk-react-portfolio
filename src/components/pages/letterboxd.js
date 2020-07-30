@@ -13,7 +13,7 @@ const Letterboxd = () => {
             function (err, feed) {
                 if (err) throw err;
                 setFeed(feed.items);
-                setIsLoading(false)
+                setIsLoading(false);
             }
         );
         return () => "finished";
@@ -80,28 +80,42 @@ const Letterboxd = () => {
     return (
         <div className="card-container">
             <div className="card-list">
-            <h1 className="header">What Have I Been Watching?</h1>
-                {isLoading
-                    ? <h1 className='card'>Loading...</h1>
-                    : feed.map((item) => {
-                          console.log(item);
+                <div className="header">
+                    <h1>What Have I Been Watching?</h1>
+                    <p>
+                        The reviews are fetched from my{" "}
+                        <a
+                            target="_blank"
+                            href="https://letterboxd.com/ticet11"
+                        >
+                            letterboxd
+                        </a>{" "}
+                        RSS feed. If they had a real API, I would have
+                        used that and it would probably have been a
+                        bit easier to style.
+                    </p>
+                </div>
 
-                          return (
-                              <div
-                                  key={item.isoDate}
-                                  className="card"
-                              >
-                                  {insertTitle(item)}
-                                  <div
-                                      className="description"
-                                      dangerouslySetInnerHTML={createMarkup(
-                                          item.content,
-                                          item.guid
-                                      )}
-                                  ></div>
-                              </div>
-                          );
-                      })}
+                {isLoading ? (
+                    <h1 className="card">Loading...</h1>
+                ) : (
+                    feed.map((item) => {
+                        console.log(item);
+
+                        return (
+                            <div key={item.isoDate} className="card">
+                                {insertTitle(item)}
+                                <div
+                                    className="description"
+                                    dangerouslySetInnerHTML={createMarkup(
+                                        item.content,
+                                        item.guid
+                                    )}
+                                ></div>
+                            </div>
+                        );
+                    })
+                )}
             </div>
         </div>
     );

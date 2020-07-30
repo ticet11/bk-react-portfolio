@@ -15,7 +15,7 @@ import PortfolioManager from "./pages/portfolio-manager";
 import NoMatch from "./pages/noMatch";
 import Icons from "../helpers/icons";
 import PortfolioDetail from "./portfolio/portfolio-detail";
-import Letterboxd from './pages/letterboxd';
+import Letterboxd from "./pages/letterboxd";
 import Auth from "./pages/auth";
 import NavigationContainer from "./navigation/navigation-container";
 
@@ -150,27 +150,8 @@ export default class App extends Component {
                             />
                             <Route
                                 exact
-                                path="/blog"
-                                render={(props) => (
-                                    <Blog
-                                        {...props}
-                                        loggedInStatus={
-                                            this.state.loggedInStatus
-                                        }
-                                    />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path="/b/:slug"
-                                render={(props) => (
-                                    <BlogDetail
-                                        {...props}
-                                        loggedInStatus={
-                                            this.state.loggedInStatus
-                                        }
-                                    />
-                                )}
+                                path="/reviews"
+                                component={Letterboxd}
                             />
                             {this.state.loggedInStatus === "LOGGED_IN"
                                 ? this.authorizedPages()
@@ -179,11 +160,6 @@ export default class App extends Component {
                                 exact
                                 path="/portfolio/:slug"
                                 component={PortfolioDetail}
-                            />
-                            <Route
-                                exact
-                                path="/letterboxd"
-                                component={Letterboxd}
                             />
                             <Route component={NoMatch} />
                         </Switch>

@@ -70,10 +70,10 @@ const NavigationContainer = (props) => {
                 <div className="nav-link-wrapper">
                     <NavLink
                         exact
-                        to="/blog"
+                        to="/reviews"
                         activeClassName="nav-link-active"
                     >
-                        Blog
+                        Reviews
                     </NavLink>
                 </div>
                 {props.loggedInStatus === "LOGGED_IN"
