@@ -17,18 +17,4 @@
     }
 }
 
-@media (max-width: 786px) {
-    .content-page-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
 
-        .left-column {
-            width: 100%;
-            height: 200px;
-        }
-
-        .right-column {
-            padding: 0 2em;
-        }
-    }
-}
