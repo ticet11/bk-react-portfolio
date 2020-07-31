@@ -5,7 +5,7 @@ export default function About() {
         <div>
             <div className="content-page-wrapper two-column">
                 <div
-                    className="left-column"
+                    className="left-column about-img"
                     
                 ></div>
                 <div className="right-column bio-content">

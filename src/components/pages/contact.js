@@ -7,12 +7,7 @@ export default function Contact() {
     return (
         <div className="content-page-wrapper two-column">
             <div
-                style={{
-                    background: "url(" + contactPic + ") no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-                className="left-column"
+                className="left-column contact-img"
             ></div>
             <div className="right-column">
                 <div className="contact-bullet-points one-column">
