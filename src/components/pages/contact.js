@@ -7,7 +7,7 @@ export default function Contact() {
             <div
                 className="left-column contact-img"
             ></div>
-            <div className="right-column">
+            <div className="right-column contact-content">
                 <div className="contact-bullet-points one-column">
                     <div className="bullet-point-group">
                         <div className="icon">
