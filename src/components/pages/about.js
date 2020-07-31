@@ -1,18 +1,12 @@
 import React from "react";
 
-import profPic from "../../../static/assets/images/about/chickens.jpg";
-
 export default function About() {
     return (
         <div>
             <div className="content-page-wrapper two-column">
                 <div
                     className="left-column"
-                    style={{
-                        background: "url(" + profPic + ") no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
+                    
                 ></div>
                 <div className="right-column bio-content">
                     <p>

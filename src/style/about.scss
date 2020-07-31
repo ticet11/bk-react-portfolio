@@ -1,3 +1,9 @@
+.left-column {
+    background: url("../../static/assets/images/about/chickens.jpg") no-repeat;
+    background-size: center;
+    background-position: center;
+}
+
 .bio-content {
     a {
         text-decoration: none;
@@ -7,6 +13,22 @@
         &:hover {
             color: $dark-main;
             text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 786px) {
+    .content-page-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .left-column {
+            width: 100%;
+            height: 200px;
+        }
+
+        .right-column {
+            padding: 0 2em;
         }
     }
 }
