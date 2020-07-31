@@ -25,7 +25,7 @@ export default class PortfolioItem extends Component {
             logo_url,
         } = this.props.item;
         return (
-            <Link to={`/portfolio/${id}`} >
+            <Link to={`/portfolio/${id}`}>
                 <div
                     className="portfolio-item-wrapper"
                     onMouseEnter={() => this.handleMouseEnter()}
@@ -38,9 +38,6 @@ export default class PortfolioItem extends Component {
                         }}
                     />
                     <div className="img-text-wrapper">
-                        <div className="logo-wrapper">
-                            <img src={logo_url} alt="" />
-                        </div>
                         <div className="subtitle">{name}</div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import RSSParser from "rss-parser";
 
 const Letterboxd = () => {
@@ -97,7 +98,10 @@ const Letterboxd = () => {
                 </div>
 
                 {isLoading ? (
-                    <h1 className="card">Loading...</h1>
+                    <div className="content-loader card">
+                        <FontAwesomeIcon icon="yin-yang" spin />
+                        Loading...
+                    </div>
                 ) : (
                     feed.map((item) => {
                         console.log(item);

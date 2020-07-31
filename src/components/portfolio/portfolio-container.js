@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PortfolioItem from "./portfolio-item";
 
@@ -9,7 +10,7 @@ export default class PortfolioContainer extends Component {
 
         this.state = {
             pageTitle: "Welcome to my portfolio. Do you love it?",
-            isLoading: false,
+            isLoading: true,
             data: [],
             filter: "",
         };
@@ -45,10 +46,12 @@ export default class PortfolioContainer extends Component {
                                 return item.category === filter;
                             }
                         ),
+                        isLoading: false,
                     });
                 } else {
                     this.setState({
                         data: response.data.portfolio_items,
+                        isLoading: false,
                     });
                 }
             })
@@ -69,7 +72,12 @@ export default class PortfolioContainer extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <div>Loading...</div>;
+            return (
+                <div className="content-loader">
+                    <FontAwesomeIcon icon="yin-yang" spin />
+                    Loading...
+                </div>
+            );
         }
 
         return (
@@ -80,7 +88,7 @@ export default class PortfolioContainer extends Component {
                             className="btn"
                             onClick={() => this.handleFilter("HC")}
                         >
-                            HTML and CSS 
+                            HTML and CSS
                         </button>
                         <button
                             className="btn"
