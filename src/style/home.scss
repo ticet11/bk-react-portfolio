@@ -11,3 +11,9 @@
         width: 100%;
     }
 }
+
+@media (max-width: 786px) {
+    .homepage-wrapper {
+        width: 100vw;
+    }
+}

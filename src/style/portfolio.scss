@@ -46,11 +46,10 @@
         grid-template-columns: 1fr;
 
         .portfolio-item-wrapper {
-            .portfolio-img-background {
-                filter: brightness(20%);
-            }
             .img-text-wrapper {
                 .subtitle {
+                    background-color: rgba(0, 0, 0, 0.8);
+                    padding: 1em;
                     color: $main;
                     font-weight: 400;
                 }
