@@ -1,8 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import contactPic from "../../../static/assets/images/contact/phoneMan.jpg";
-
 export default function Contact() {
     return (
         <div className="content-page-wrapper two-column">
@@ -101,8 +99,7 @@ export default function Contact() {
                                 target="_blank"
                                 href="https://goo.gl/maps/Dqy7sq9wEpd7erJ16"
                             >
-                                Sandy, UT (Open to remote
-                                opportunities)
+                                Sandy, UT (Open to remote)
                             </a>
                         </div>
                     </div>

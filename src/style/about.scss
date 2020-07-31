@@ -1,6 +1,6 @@
 .about-img {
-    background: url("../../static/assets/images/about/chickens.jpg") no-repeat;
-    background-size: center;
+    background: url("../../static/assets/images/about/chickens.jpg")
+        no-repeat;
     background-position: center;
 }
 
@@ -17,4 +17,8 @@
     }
 }
 
-
+@media (max-width: 786px) {
+    .right-column {
+        padding: 0 2em;
+    }
+}

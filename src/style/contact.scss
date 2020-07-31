@@ -1,5 +1,28 @@
 .contact-img {
-    background: url("../../static/assets/images/contact/phoneMan.jpg") no-repeat;
-    background-size: center;
+    background: url("../../static/assets/images/contact/phoneMan.jpg")
+        no-repeat;
     background-position: center;
+}
+
+@media (max-width: 786px) {
+    .content-page-wrapper {
+        .contact-img {
+            background-size: 100%;
+        }
+
+        .right-column {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            a {
+                font-size: 0.8em;
+            }
+
+            .contact-bullet-points {
+                width: 80%;
+            }
+        }
+    }
 }
