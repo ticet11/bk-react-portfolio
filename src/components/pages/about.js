@@ -52,12 +52,8 @@ export default function About() {
                     <p>
                         In my spare time, if I’m not coding, I like
                         fixing cars and motorcycles and watching
-                        movies. You can check out what movies I've
-                        been watching on my{" "}
-                        <a href="https://letterboxd.com/ticet11/">
-                            letterboxd account
-                        </a>
-                        .
+                        movies. Check out what movies I've
+                        been watching on the reviews page.
                     </p>
                 </div>
             </div>

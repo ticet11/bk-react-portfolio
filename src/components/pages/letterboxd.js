@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RSSParser from "rss-parser";
 
 const Letterboxd = () => {
@@ -13,7 +13,7 @@ const Letterboxd = () => {
             "https://cors-anywhere.herokuapp.com/https://letterboxd.com/ticet11/rss/",
             function (err, feed) {
                 if (err) throw err;
-                setFeed(feed.items);
+                setFeed(feed.items.slice(0, 5));
                 setIsLoading(false);
             }
         );
@@ -63,12 +63,14 @@ const Letterboxd = () => {
                             {titleSlicer(item.title, "title")}
                         </h2>
                     </a>
-                    <p className="release-date">
-                        {titleSlicer(item.title, "date")}
-                    </p>
-                    <p className="star-rating">
-                        {titleSlicer(item.title, "stars")}
-                    </p>
+                    <div className="year-star">
+                        <p className="release-date">
+                            {titleSlicer(item.title, "date")}
+                        </p>
+                        <p className="star-rating">
+                            {titleSlicer(item.title, "stars")}
+                        </p>
+                    </div>
                 </div>
                 <p className="review-date">
                     Review published:{" "}
@@ -82,7 +84,7 @@ const Letterboxd = () => {
         <div className="card-container">
             <div className="card-list">
                 <div className="header">
-                    <h1>What Have I Been Watching?</h1>
+                    <h1>What I've Been Watching</h1>
                     <p>
                         The reviews are fetched from my{" "}
                         <a
@@ -104,8 +106,6 @@ const Letterboxd = () => {
                     </div>
                 ) : (
                     feed.map((item) => {
-                        console.log(item);
-
                         return (
                             <div key={item.isoDate} className="card">
                                 {insertTitle(item)}
@@ -116,11 +116,29 @@ const Letterboxd = () => {
                                         item.guid
                                     )}
                                 ></div>
+                                <a
+                                    href="https://letterboxd.com/ticet11"
+                                    target="_blank"
+                                    className="dbbtn"
+                                >
+                                    See More
+                                </a>
                             </div>
                         );
                     })
                 )}
             </div>
+
+            <p>
+                See more on{" "}
+                <a
+                    target="_blank"
+                    href="https://letterboxd.com/ticet11"
+                >
+                    letterboxd
+                </a>
+                .
+            </p>
         </div>
     );
 };

@@ -13,18 +13,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
 
-        p {
-            font-size: 0.9em;
-            max-width: 70%;
+    p {
+        font-size: 0.9em;
+        max-width: 70%;
 
-            a {
-                color: $main;
-                text-decoration: none;
+        a {
+            color: $main;
+            text-decoration: none;
 
-                &:hover {
-                    text-decoration: underline;
-                }
+            &:hover {
+                text-decoration: underline;
             }
         }
     }
@@ -67,6 +67,10 @@
                     line-height: 24px;
                 }
 
+                .year-star {
+                    display: flex;
+                }
+
                 .release-date {
                     margin: 0;
                     padding-right: 10px;
@@ -84,63 +88,39 @@
             .description {
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 1em;
 
                 img {
                     max-height: 300px;
-                    box-shadow: 9px 9px 15px -3px #0D0F13;
+                    box-shadow: 9px 9px 15px -3px #0d0f13;
+                }
+            }
+            
+            .dbbtn {
+                color: $light-main;
+                background-color: #000000e7;
+                padding: 0.2rem 0.6rem;
+                border: 1px solid #000000e0;
+                border-radius: 10px;
+                font-size: 1rem;
+                transition: background-color 250ms;
+
+                .dbbtn:hover {
+                    background-color: #000000d9;
                 }
             }
         }
-    }
-    .dbButton {
-        display: flex;
-        justify-content: right;
-    }
-    .dbbtn {
-        background-color: #000000bf;
-        color: white;
-        padding: 0.8rem 1.6rem;
-        border: 1px solid #000000bf;
-        border-radius: 20px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 250ms;
 
-        .dbbtn:hover {
-            background-color: #000000d9;
+        p {
+            a {
+                text-decoration: none;
+                color: $main;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
-    }
-
-    .button {
-        background-color: #000000bf;
-
-        padding: 1rem 2rem;
-        border: 1px solid #000000bf;
-        border-radius: 20px;
-        font-size: 1.4rem;
-        cursor: pointer;
-        transition: background-color 250ms;
-
-        font-size: 1.6rem;
-        padding: 0.5rem 2rem;
-        border-radius: 20px;
-        border: 1px solid #e0dec0;
-        background-color: #e0dec0;
-        margin-bottom: 1rem;
-    }
-
-    .button {
-        background-color: #000000bf;
-        color: white;
-        padding: 1rem 2rem;
-        border: 1px solid #000000bf;
-        border-radius: 20px;
-        font-size: 1.4rem;
-        cursor: pointer;
-        transition: background-color 250ms;
-    }
-    .button:hover {
-        background-color: #000000d9;
     }
 }
 
@@ -158,6 +138,11 @@
 
                 .title {
                     margin-bottom: 0.5rem;
+                    flex: 0 1 auto;
+                }
+
+                .year-star {
+                    flex: 1;
                 }
             }
         }
