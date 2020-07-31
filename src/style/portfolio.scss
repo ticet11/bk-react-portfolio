@@ -23,7 +23,7 @@
             height: 100%;
             width: 100%;
             text-align: center;
-            
+
             .subtitle {
                 transition: 1s ease-in-out;
                 color: transparent;
@@ -33,15 +33,28 @@
             color: $main;
             font-weight: 400;
         }
-
-        // .logo-wrapper img {
-        //     width: 50%;
-        //     margin-bottom: 20px;
-        // }
     }
 }
 
 .img-blur {
     transition: 1s;
     filter: brightness(20%);
+}
+
+@media (max-width: 786px) {
+    .portfolio-items-wrapper {
+        grid-template-columns: 1fr;
+
+        .portfolio-item-wrapper {
+            .portfolio-img-background {
+                filter: brightness(20%);
+            }
+            .img-text-wrapper {
+                .subtitle {
+                    color: $main;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
 }
