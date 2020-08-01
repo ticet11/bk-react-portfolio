@@ -1,13 +1,22 @@
 .portfolio-detail-wrapper {
     width: 100vw;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .banner {
+        width: 100%;
         height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .link-instruction {
+        
+        max-width: 700px;
     }
 
     .portfolio-detail-description-wrapper {
@@ -50,6 +59,15 @@
     .portfolio-detail-wrapper {
         width: 100vw;
         text-align: center;
+
+        .banner {
+            height: 200px;
+        }
+
+        .link-instruction {
+            font-size: .8em;
+            padding: 0 10px;
+        }
 
         .portfolio-detail-description-wrapper {
             .description {

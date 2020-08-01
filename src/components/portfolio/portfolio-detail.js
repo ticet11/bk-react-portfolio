@@ -61,6 +61,12 @@ export default class PortfolioDetail extends React.Component {
                         />
                     </div>
                     <h1>{name}</h1>
+                    <p className='link-instruction'>
+                        The link below the description will take you
+                        to GitHub, where you will find the code, a
+                        link to a working version or download link,
+                        and a video demonstration if available.
+                    </p>
                     <div className="portfolio-detail-description-wrapper">
                         <div className="description">
                             {description}
