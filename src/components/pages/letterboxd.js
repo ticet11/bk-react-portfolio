@@ -129,7 +129,7 @@ const Letterboxd = () => {
                 )}
             </div>
 
-            <p>
+            <p className='footer'>
                 See more on{" "}
                 <a
                     target="_blank"

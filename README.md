@@ -1,3 +1,5 @@
+<!-- TODO: add share photo and change title (tab text) -->
+
 # Brian Kozub's react portfolio
 
 ## What's included?
