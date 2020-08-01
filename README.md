@@ -1,4 +1,4 @@
-<!-- TODO: add share photo and change title (tab text) -->
+<!-- TODO: add share photo (open graph tags?)-->
 
 # Brian Kozub's react portfolio
 
