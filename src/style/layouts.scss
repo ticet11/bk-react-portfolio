@@ -1,6 +1,5 @@
 .content-page-wrapper {
     width: 100vw;
-    height: calc(100vh - 84px);
 
     .left-column {
         width: 100%;
@@ -49,8 +48,12 @@
 }
 
 @media (min-width: 787px) {
-    .right-column {
-        padding: 100px;
+    .content-page-wrapper {
+        height: calc(100vh - 84px);
+
+        .right-column {
+            padding: 100px;
+        }
     }
 }
 
