@@ -13,7 +13,7 @@ const Letterboxd = () => {
             "https://cors-anywhere.herokuapp.com/https://letterboxd.com/ticet11/rss/",
             function (err, feed) {
                 if (err) throw err;
-                setFeed(feed.items.slice(0, 5));
+                setFeed(feed.items.slice(0, 6));
                 setIsLoading(false);
             }
         );
@@ -82,7 +82,6 @@ const Letterboxd = () => {
 
     return (
         <div className="card-container">
-            <div className="card-list">
                 <div className="header">
                     <h1>What I've Been Watching</h1>
                     <p>
@@ -98,6 +97,7 @@ const Letterboxd = () => {
                         bit easier to style.
                     </p>
                 </div>
+            <div className="card-list">
 
                 {isLoading ? (
                     <div className="content-loader card">
