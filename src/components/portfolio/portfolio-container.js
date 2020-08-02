@@ -88,7 +88,7 @@ export default class PortfolioContainer extends Component {
                             className="btn"
                             onClick={() => this.handleFilter("HC")}
                         >
-                            HTML and CSS
+                            HTML & CSS
                         </button>
                         <button
                             className="btn"
@@ -96,13 +96,13 @@ export default class PortfolioContainer extends Component {
                                 this.handleFilter("JavaScript")
                             }
                         >
-                            JS and React
+                            JS & React
                         </button>
                         <button
                             className="btn"
                             onClick={() => this.handleFilter("Lua")}
                         >
-                            Lua and Love2D
+                            Lua & Love2D
                         </button>
                     </div>
                 ) : (
