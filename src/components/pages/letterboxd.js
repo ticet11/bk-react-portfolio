@@ -49,8 +49,8 @@ const Letterboxd = () => {
         }
         if (method === "stars" && starIndex !== -1) {
             return title
-                .slice(starIndex + 3, -1)
-                .replace(" (contains spoilers", "");
+                .slice(starIndex + 3)
+                .replace(" (contains spoilers)", "");
         }
     };
 
