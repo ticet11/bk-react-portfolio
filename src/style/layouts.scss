@@ -1,5 +1,5 @@
 .content-page-wrapper {
-    width: 100vw;
+    
 
     .left-column {
         width: 100%;
@@ -49,8 +49,9 @@
 
 @media (min-width: 787px) {
     .content-page-wrapper {
+        width: calc(100vw - 21px);
         height: calc(100vh - 84px);
-
+        
         .right-column {
             padding: 100px;
         }
