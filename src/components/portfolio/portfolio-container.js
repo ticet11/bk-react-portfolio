@@ -96,7 +96,7 @@ export default class PortfolioContainer extends Component {
                                 this.handleFilter("JavaScript")
                             }
                         >
-                            JavaScript and React.js
+                            JS and React
                         </button>
                         <button
                             className="btn"
