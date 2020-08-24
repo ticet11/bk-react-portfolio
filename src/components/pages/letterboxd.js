@@ -30,7 +30,7 @@ const Letterboxd = () => {
     };
 
     const titleSlicer = (title, method) => {
-        let starIndex = title.indexOf(" - ");
+        let starIndex = title.lastIndexOf(" - ");
         if (method === "title" && starIndex !== -1) {
             return title.slice(0, starIndex - 6);
         } else if (method === "title") {
