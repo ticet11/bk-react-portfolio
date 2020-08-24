@@ -14,7 +14,7 @@ export default function About() {
                     <p>
                         My wife and I have a 2 year old little girl.
                         We also have a cat, named Gatsby, that my wife
-                        likes more than me.
+                        likes more than I do. He's okay, I guess.
                     </p>
                     <p>
                         In my spare time, if I’m not coding, I like
