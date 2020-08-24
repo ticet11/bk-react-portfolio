@@ -4,38 +4,28 @@ export default function About() {
     return (
         <div>
             <div className="content-page-wrapper two-column">
-                <div
-                    className="left-column about-img"
-                    
-                ></div>
+                <div className="left-column about-img"></div>
                 <div className="right-column bio-content">
                     <p>
-                        I don't know the answer to every question, but
-                        do know how to find those answers and I love
-                        the process. I love learning new skills and
-                        finding new ways to solve problems. Recently,
-                        that has meant exploring game development in
-                        lua and Love2D.
+                        Hi, thanks for coming to take a look at my
+                        work. My name is Brian and I look forward to
+                        getting to know you!
                     </p>
                     <p>
-                        I have been exploring the bounds of technology
-                        since I was a little kid, taking old
-                        electronics apart or figuring out how to get
-                        Red Alert on the old Windows 95 computer.
+                        My wife and I have a 2 year old little girl.
+                        We also have a cat, named Gatsby, that my wife
+                        likes more than me.
                     </p>
                     <p>
-                        Due to my diverse job history, I have an
-                        understanding of several varied industries
-                        that allows me to understand problems from
-                        many perspectives. My solution to a problem
-                        will likely be different from yours and I
-                        think that's an incredible asset in
-                        development.
+                        In my spare time, if I’m not coding, I like
+                        fixing cars and motorcycles and watching
+                        movies. Check out what movies I've been
+                        watching on the reviews page.
                     </p>
 
                     <p>These are some of my other skills:</p>
 
-                    <ul className='skills-container'>
+                    <ul className="skills-container">
                         <li>Databases, including MongoDB and SQL</li>
                         <li>React.js</li>
                         <li>Lua and Love2D</li>
@@ -50,10 +40,12 @@ export default function About() {
                     </ul>
 
                     <p>
-                        In my spare time, if I’m not coding, I like
-                        fixing cars and motorcycles and watching
-                        movies. Check out what movies I've
-                        been watching on the reviews page.
+                        I don't know the answer to every question, but
+                        do know how to find those answers and I love
+                        the process. I love learning new skills and
+                        finding new ways to solve problems. Recently,
+                        that has meant exploring game development in
+                        lua and Love2D.
                     </p>
                 </div>
             </div>
