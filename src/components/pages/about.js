@@ -22,7 +22,11 @@ export default function About() {
                         movies. Check out what movies I've been
                         watching on the reviews page.
                     </p>
-
+                    <p>
+                        I'm currently working at Avii as an Apprentice
+                        Software Engineer. As a part of my current
+                        project, I'm learning ASP.NET and C#.
+                    </p>
                     <p>These are some of my other skills:</p>
 
                     <ul className="skills-container">
@@ -43,9 +47,7 @@ export default function About() {
                         I don't know the answer to every question, but
                         do know how to find those answers and I love
                         the process. I love learning new skills and
-                        finding new ways to solve problems. Recently,
-                        that has meant exploring game development in
-                        lua and Love2D.
+                        finding new ways to solve problems.
                     </p>
                 </div>
             </div>
