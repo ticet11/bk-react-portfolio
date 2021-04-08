@@ -10,7 +10,7 @@ const Letterboxd = () => {
 
     useEffect(() => {
         parser.parseURL(
-            "https://cors-anywhere.herokuapp.com/https://letterboxd.com/ticet11/rss/",
+            "https://kozubcorsproxy.herokuapp.com/https://letterboxd.com/ticet11/rss/",
             function (err, feed) {
                 if (err) throw err;
                 setFeed(feed.items.slice(0, 6));
