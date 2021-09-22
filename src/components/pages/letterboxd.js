@@ -82,23 +82,26 @@ const Letterboxd = () => {
 
     return (
         <div className="card-container">
-                <div className="header">
-                    <h1>What I've Been Watching</h1>
-                    <p>
-                        The reviews are fetched from my{" "}
-                        <a
-                            target="_blank"
-                            href="https://letterboxd.com/ticet11"
-                        >
-                            letterboxd
-                        </a>{" "}
-                        RSS feed. If they had a real API, I would have
-                        used that and it would probably have been a
-                        bit easier to style.
-                    </p>
-                </div>
+            <div className="header">
+                <h1>What I've Been Watching</h1>
+                <p>
+                    The reviews are fetched from my{" "}
+                    <a
+                        target="_blank"
+                        href="https://letterboxd.com/ticet11"
+                    >
+                        letterboxd
+                    </a>{" "}
+                    RSS feed. If they had a real API, I would have
+                    used that and it would probably have been a bit
+                    easier to style. The way letterboxd is set up, I
+                    need to go through a proxy, which I currently have
+                    hosted on Heroku, so you may need to wait a moment
+                    for the proxy to wake up before reviews are
+                    returned, until I can get it hosted elsewhere.
+                </p>
+            </div>
             <div className="card-list">
-
                 {isLoading ? (
                     <div className="content-loader card">
                         <FontAwesomeIcon icon="yin-yang" spin />
@@ -129,7 +132,7 @@ const Letterboxd = () => {
                 )}
             </div>
 
-            <p className='footer'>
+            <p className="footer">
                 See more on{" "}
                 <a
                     target="_blank"
