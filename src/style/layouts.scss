@@ -1,71 +1,69 @@
 .content-page-wrapper {
-    
+	.left-column {
+		width: 100%;
+	}
 
-    .left-column {
-        width: 100%;
-    }
+	.right-column {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
 
-    .right-column {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
+		.contact-bullet-points {
+			.bullet-point-group {
+				display: flex;
+				align-items: center;
 
-        .contact-bullet-points {
-            .bullet-point-group {
-                display: flex;
-                align-items: center;
+				.icon {
+					width: 2em;
+					text-align: center;
 
-                .icon {
-                    width: 2em;
-                    text-align: center;
+					a {
+						font-size: 2em;
+						color: $main;
+						text-decoration: none;
+						transition: 0.5s ease-in-out;
 
-                    a {
-                        font-size: 2em;
-                        color: $main;
-                        text-decoration: none;
-                        transition: 0.5s ease-in-out;
+						&:hover {
+							color: $dark-main;
+						}
+					}
+				}
 
-                        &:hover {
-                            color: $dark-main;
-                        }
-                    }
-                }
+				.text {
+					font-size: 1.5em;
+					font-weight: 900;
+					margin-left: 25px;
 
-                .text {
-                    font-size: 1.5em;
-                    font-weight: 900;
-                    margin-left: 25px;
-
-                    a {
-                        text-decoration: none;
-                        color: black;
-                    }
-                }
-            }
-        }
-    }
+					a {
+						text-decoration: none;
+						color: black;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 787px) {
-    .content-page-wrapper {
-        width: calc(100vw - 21px);
-        height: calc(100vh - 84px);
-        
-        .right-column {
-            padding: 100px;
-        }
-    }
+	.content-page-wrapper {
+		width: calc(100vw - 21px);
+		height: calc(100vh - 85px);
+
+		.right-column {
+			padding: 20px;
+		}
+	}
 }
 
 @media (max-width: 786px) {
-    .content-page-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
+	.content-page-wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
 
-        .left-column {
-            width: 100%;
-            height: 200px;
-        }
-    }
+		.left-column {
+			width: 100%;
+			height: 200px;
+		}
+	}
 }
