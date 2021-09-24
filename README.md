@@ -10,4 +10,4 @@
 ## Hosted on Heroku
 
 1. Commit to github
-2. Push to Heroku - `$ git push heroku master`
+2. Push to Heroku - `$ git push heroku main`
