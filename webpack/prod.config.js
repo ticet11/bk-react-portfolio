@@ -1,18 +1,17 @@
 const path = require('path');
-const webpackMerge = require('webpack-merge');
-const autoprefixer = require('autoprefixer');
+const { merge } = require('webpack-merge');
 const webpackCommon = require('./common.config');
 
 // webpack plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-
-module.exports = webpackMerge(webpackCommon, {
+//TODO-Brian: Production build filled with errors not seen in development
+module.exports = merge(webpackCommon, {
 	bail: true,
 
 	devtool: 'source-map',
@@ -27,47 +26,45 @@ module.exports = webpackMerge(webpackCommon, {
 		chunkFilename: '[id]-[chunkhash].js',
 
 		publicPath: '/',
+
+		clean: true,
 	},
 
 	module: {
 		rules: [
 			{
 				test: /\.s?css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-						{
-							loader: 'css-loader',
-							options: {
-								sourceMap: true,
-								importLoaders: 2,
-							},
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true,
+							importLoaders: 2,
 						},
-						{
-							loader: 'postcss-loader',
-							options: {
-								config: {
-									path: path.resolve(__dirname, 'postcss.config.js'),
-								},
-								sourceMap: true,
-							},
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: true,
 						},
-						{
-							loader: 'sass-loader',
-							options: {
-								sassOptions: {
-									outputStyle: 'expanded',
-								},
-								sourceMap: true,
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								outputStyle: 'expanded',
 							},
+							sourceMap: true,
 						},
-					],
-				}),
+					},
+				],
 			},
 		],
 	},
 
 	plugins: [
+		new MiniCssExtractPlugin({ filename: '[name]-[chunkhash].min.css' }),
 		new HtmlWebpackPlugin({
 			inject: true,
 			template: path.resolve(__dirname, '../static/index.html'),
@@ -85,32 +82,28 @@ module.exports = webpackMerge(webpackCommon, {
 				minifyURLs: true,
 			},
 		}),
-		new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../static') }], {
-			ignore: ['index.html', 'favicon.ico'],
-		}),
-		new CleanWebpackPlugin(['dist'], {
-			root: path.resolve(__dirname, '..'),
-			exclude: '.gitignore',
+		new CopyWebpackPlugin(
+			{
+				patterns: [{ from: path.resolve(__dirname, '../static') }],
+			},
+			{
+				globOptions: { ignore: ['index.html', 'favicon.ico'] },
+			}
+		),
+		new CleanWebpackPlugin({
+			verbose: true,
+			cleanOnceBeforeBuildPatterns: ['!.gitignore'],
 		}),
 		new DefinePlugin({
 			'process.env': JSON.stringify('production'),
 		}),
-		new ExtractTextPlugin('[name]-[chunkhash].min.css'),
-		new UglifyJsPlugin({
-			uglifyOptions: {
-				compress: {
-					ie8: true,
-					warnings: false,
-				},
-				mangle: {
-					ie8: true,
-				},
+		new TerserPlugin({
+			terserOptions: {
 				output: {
 					comments: false,
-					ie8: true,
 				},
+				ie8: true,
 			},
-			sourceMap: true,
 		}),
 		new LoaderOptionsPlugin({
 			options: {

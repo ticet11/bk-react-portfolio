@@ -66,6 +66,7 @@
 		"http": "^0.0.1-security",
 		"https": "^1.0.0",
 		"https-browserify": "^1.0.0",
+		"mini-css-extract-plugin": "^2.3.0",
 		"moment": "^2.29.1",
 		"node-sass": "^6.0.1",
 		"postcss-loader": "^6.1.1",
@@ -88,6 +89,7 @@
 		"stream-http": "^3.2.0",
 		"striptags": "^3.2.0",
 		"style-loader": "^3.3.0",
+		"terser-webpack-plugin": "^5.2.4",
 		"timers": "^0.1.1",
 		"timers-browserify": "^2.0.12",
 		"webpack": "5.53.0",
@@ -103,9 +105,8 @@
 		"@babel/plugin-proposal-object-rest-spread": "^7.15.6",
 		"@babel/preset-env": "^7.15.6",
 		"@babel/preset-react": "^7.14.5",
+		"@types/webpack": "^5.28.0",
 		"babel-loader": "^8.2.2",
-		"babel-register": "^6.26.0",
-		"extract-text-webpack-plugin": "^4.0.0-beta.0",
-		"uglifyjs-webpack-plugin": "^2.2.0"
+		"babel-register": "^6.26.0"
 	}
 }
