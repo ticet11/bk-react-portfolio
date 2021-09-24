@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const webpack = require('webpack');
 const webpackCommon = require('./common.config');
 
 // webpack plugins
@@ -84,6 +85,9 @@ module.exports = merge(webpackCommon, {
 		new CleanWebpackPlugin({
 			verbose: true,
 			cleanOnceBeforeBuildPatterns: ['!.gitignore'],
+		}),
+		new webpack.ProvidePlugin({
+			process: 'process/browser',
 		}),
 		new MiniCssExtractPlugin({ filename: '[name]-[chunkhash].min.css' }),
 		new CopyWebpackPlugin({
