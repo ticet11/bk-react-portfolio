@@ -64,7 +64,6 @@ module.exports = merge(webpackCommon, {
 	},
 
 	plugins: [
-		new MiniCssExtractPlugin({ filename: '[name]-[chunkhash].min.css' }),
 		new HtmlWebpackPlugin({
 			inject: true,
 			template: path.resolve(__dirname, '../static/index.html'),
@@ -82,17 +81,18 @@ module.exports = merge(webpackCommon, {
 				minifyURLs: true,
 			},
 		}),
-		new CopyWebpackPlugin(
-			{
-				patterns: [{ from: path.resolve(__dirname, '../static') }],
-			},
-			{
-				globOptions: { ignore: ['index.html', 'favicon.ico'] },
-			}
-		),
 		new CleanWebpackPlugin({
 			verbose: true,
 			cleanOnceBeforeBuildPatterns: ['!.gitignore'],
+		}),
+		new MiniCssExtractPlugin({ filename: '[name]-[chunkhash].min.css' }),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, '../static'),
+					globOptions: { ignore: ['**/index.html', 'favicon.ico'] },
+				},
+			],
 		}),
 		new DefinePlugin({
 			'process.env': JSON.stringify('production'),
