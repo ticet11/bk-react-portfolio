@@ -1,6 +1,6 @@
 {
 	"name": "bk-react-portfolio",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Personal portfolio, created with react.",
 	"scripts": {
 		"preinstall": "npm set audit false",
@@ -30,7 +30,7 @@
 	"bugs": {
 		"url": "https://github.com/bottega-code-school/js-builder/issues"
 	},
-	"homepage": "https://github.com/bottega-code-school/js-builder",
+	"homepage": "https://briankozub.com",
 	"dependencies": {
 		"@babel/cli": "^7.15.7",
 		"@babel/polyfill": "^7.12.1",

@@ -15,8 +15,13 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 module.exports = merge(webpackCommon, {
 	bail: true,
 
-	devtool: 'source-map',
 	mode: 'production',
+
+	performance: {
+		maxEntrypointSize: 512000,
+		maxAssetSize: 512000,
+	},
+
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 
@@ -40,15 +45,11 @@ module.exports = merge(webpackCommon, {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true,
 							importLoaders: 2,
 						},
 					},
 					{
 						loader: 'postcss-loader',
-						options: {
-							sourceMap: true,
-						},
 					},
 					{
 						loader: 'sass-loader',
@@ -56,7 +57,6 @@ module.exports = merge(webpackCommon, {
 							sassOptions: {
 								outputStyle: 'expanded',
 							},
-							sourceMap: true,
 						},
 					},
 				],
