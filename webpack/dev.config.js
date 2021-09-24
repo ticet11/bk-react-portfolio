@@ -15,8 +15,6 @@ module.exports = merge(webpackCommon, {
 	output: {
 		path: path.resolve(__dirname, '../static/dist'),
 
-		filename: '[name].js',
-
 		sourceMapFilename: '[name].map',
 
 		chunkFilename: '[id]-chunk.js',
@@ -41,9 +39,10 @@ module.exports = merge(webpackCommon, {
 					{
 						loader: 'sass-loader',
 						options: {
-							outputStyle: 'expanded',
+							sassOptions: {
+								outputStyle: 'expanded',
+							},
 							sourceMap: true,
-							sourceMapContents: true,
 						},
 					},
 				],
@@ -53,9 +52,7 @@ module.exports = merge(webpackCommon, {
 
 	plugins: [
 		new DefinePlugin({
-			'process.env': {
-				NODE_ENV: "'development'",
-			},
+			'process.env': JSON.stringify('development'),
 		}),
 		new HtmlWebpackPlugin({
 			inject: true,
