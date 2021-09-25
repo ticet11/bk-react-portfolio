@@ -30,8 +30,8 @@ module.exports = {
 				type: 'asset/resource',
 				test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
 				generator: {
-					filename: '[path][name].[ext]',
-					publicPath: '/',
+					filename: `[path][name][ext]`,
+					publicPath: '/projects/react-test/',
 				},
 			},
 

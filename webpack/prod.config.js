@@ -31,7 +31,7 @@ module.exports = merge(webpackCommon, {
 
 		chunkFilename: '[id]-[chunkhash].js',
 
-		publicPath: '/',
+		publicPath: '/projects/react-test',
 
 		clean: true,
 	},
@@ -111,9 +111,9 @@ module.exports = merge(webpackCommon, {
 		}),
 		new LoaderOptionsPlugin({
 			options: {
-				context: '/',
+				context: '/projects/react-test',
 				sassLoader: {
-					includePaths: [path.resolve(__dirname, '../src')],
+					includePaths: [path.resolve(__dirname, '/src')],
 				},
 			},
 		}),
