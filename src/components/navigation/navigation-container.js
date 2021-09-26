@@ -36,27 +36,27 @@ const NavigationContainer = (props) => {
 		<div className="nav-wrapper">
 			<div className="nav-left">
 				<div className="nav-link-wrapper">
-					<NavLink exact to="./" activeClassName="nav-link-active">
+					<NavLink exact to="/" activeClassName="nav-link-active">
 						Home
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">
-					<NavLink exact to="./about" activeClassName="nav-link-active">
+					<NavLink exact to="/about" activeClassName="nav-link-active">
 						About
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">
-					<NavLink exact to="./contact" activeClassName="nav-link-active">
+					<NavLink exact to="/contact" activeClassName="nav-link-active">
 						Contact
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">
-					<NavLink exact to="./reviews" activeClassName="nav-link-active">
+					<NavLink exact to="/reviews" activeClassName="nav-link-active">
 						Reviews
 					</NavLink>
 				</div>
 				{props.loggedInStatus === 'LOGGED_IN'
-					? dynamicLink('./portfolio-manager', 'Portfolio Manager')
+					? dynamicLink('/portfolio-manager', 'Portfolio Manager')
 					: null}
 			</div>
 			<div className="nav-right">
