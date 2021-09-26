@@ -1,24 +1,23 @@
 .about-img {
-    background: url("../../static/assets/images/about/chickens.jpg")
-        no-repeat;
-    background-position: center;
+	background: url('../../src/assets/images/about/chickens.jpg') no-repeat;
+	background-position: center;
 }
 
 .bio-content {
-    a {
-        text-decoration: none;
-        color: $main;
-        transition: 0.5s ease-in-out;
+	a {
+		text-decoration: none;
+		color: $main;
+		transition: 0.5s ease-in-out;
 
-        &:hover {
-            color: $dark-main;
-            text-decoration: underline;
-        }
-    }
+		&:hover {
+			color: $dark-main;
+			text-decoration: underline;
+		}
+	}
 }
 
 @media (max-width: 786px) {
-    .bio-content {
-        padding: 0 2em;
-    }
+	.bio-content {
+		padding: 0 2em;
+	}
 }

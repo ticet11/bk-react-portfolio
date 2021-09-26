@@ -74,9 +74,6 @@ module.exports = merge(webpackCommon, {
 			},
 		},
 		hot: true,
-		historyApiFallback: {
-			disableDotRule: true,
-		},
 		client: {
 			overlay: {
 				warnings: true,
