@@ -19,7 +19,7 @@ module.exports = merge(webpackCommon, {
 
 		chunkFilename: '[id]-chunk.js',
 
-		publicPath: '/projects/react-test',
+		publicPath: '/',
 	},
 
 	module: {
@@ -74,9 +74,6 @@ module.exports = merge(webpackCommon, {
 			},
 		},
 		hot: true,
-		historyApiFallback: {
-			disableDotRule: true,
-		},
 		client: {
 			overlay: {
 				warnings: true,

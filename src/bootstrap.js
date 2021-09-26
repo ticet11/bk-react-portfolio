@@ -13,7 +13,7 @@ import './style/main.scss';
 function main() {
 	ReactDOM.render(
 		<Provider store={createStoreWithMiddleware(reducers)}>
-			<BrowserRouter basename="/projects/react-test">
+			<BrowserRouter basename="/">
 				<App />
 			</BrowserRouter>
 		</Provider>,

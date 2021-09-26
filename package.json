@@ -30,7 +30,7 @@
 	"bugs": {
 		"url": "https://github.com/bottega-code-school/js-builder/issues"
 	},
-	"homepage": "/projects/react-test/",
+	"homepage": "http://wiltingdaisy.com",
 	"dependencies": {
 		"@babel/cli": "^7.15.7",
 		"@babel/polyfill": "^7.12.1",
@@ -48,6 +48,7 @@
 		"babel-polyfill": "^6.26.0",
 		"buffer": "^6.0.3",
 		"clean-webpack-plugin": "^4.0.0",
+		"connect-history-api-fallback": "^1.6.0",
 		"copy-webpack-plugin": "^9.0.1",
 		"core-js": "^3.18.0",
 		"cross-env": "^7.0.3",

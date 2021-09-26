@@ -17,7 +17,9 @@ module.exports = {
 			https: require.resolve('https-browserify'),
 		},
 	},
-
+	devServer: {
+		historyApiFallback: true,
+	},
 	module: {
 		rules: [
 			{
@@ -31,7 +33,7 @@ module.exports = {
 				test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
 				generator: {
 					filename: `[path][name][ext]`,
-					publicPath: '/projects/react-test/',
+					publicPath: '/',
 				},
 			},
 

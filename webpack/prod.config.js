@@ -23,7 +23,7 @@ module.exports = merge(webpackCommon, {
 	},
 
 	output: {
-		path: path.resolve(__dirname, '../dist'),
+		path: path.resolve(__dirname, '../dist/'),
 
 		filename: '[name]-[contenthash].min.js',
 
@@ -31,7 +31,7 @@ module.exports = merge(webpackCommon, {
 
 		chunkFilename: '[id]-[chunkhash].js',
 
-		publicPath: '/projects/react-test',
+		publicPath: '/',
 
 		clean: true,
 	},
@@ -111,7 +111,7 @@ module.exports = merge(webpackCommon, {
 		}),
 		new LoaderOptionsPlugin({
 			options: {
-				context: '/projects/react-test',
+				context: '/',
 				sassLoader: {
 					includePaths: [path.resolve(__dirname, '/src')],
 				},
