@@ -30,7 +30,7 @@
 	"bugs": {
 		"url": "https://github.com/bottega-code-school/js-builder/issues"
 	},
-	"homepage": "http://wiltingdaisy.com",
+	"homepage": "https://briankozub.com",
 	"dependencies": {
 		"@babel/cli": "^7.15.7",
 		"@babel/polyfill": "^7.12.1",
