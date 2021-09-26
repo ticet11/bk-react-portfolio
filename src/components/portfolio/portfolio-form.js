@@ -245,10 +245,10 @@ export default class PortfolioForm extends Component {
                         value={this.state.category}
                         onChange={this.handleChange}
                     >
-                        <option value="HC">Select Category</option>
-                        <option value="HC">HTML and CSS</option>
-                        <option value="JavaScript">JS and React</option>
-                        <option value="Lua">Lua and Love2D</option>
+                        <option value="HCJ">Select Category</option>
+                        <option value="HCJ">HTML, CSS, JS</option>
+                        <option value="React">React</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div className="one-column">
