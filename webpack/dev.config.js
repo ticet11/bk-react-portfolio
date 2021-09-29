@@ -21,7 +21,9 @@ module.exports = merge(webpackCommon, {
 
 		publicPath: '/',
 	},
-
+	optimization: {
+		runtimeChunk: 'single',
+	},
 	module: {
 		rules: [
 			{
@@ -60,7 +62,7 @@ module.exports = merge(webpackCommon, {
 			favicon: path.resolve(__dirname, '../static/favicon.ico'),
 		}),
 	],
-
+	target: 'web',
 	devServer: {
 		host: env.devServer.host || 'localhost',
 		port: env.devServer.port || 3000,
