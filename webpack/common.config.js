@@ -2,6 +2,7 @@
 const SplitChunksPlugin = require('webpack/lib/optimize/SplitChunksPlugin');
 
 module.exports = {
+	target: 'node',
 	entry: {
 		app: ['./src/bootstrap.js'],
 		vendor: './src/vendor.js',
@@ -15,6 +16,7 @@ module.exports = {
 		fallback: {
 			http: require.resolve('stream-http'),
 			https: require.resolve('https-browserify'),
+			url: require.resolve('url')
 		},
 	},
 	devServer: {
