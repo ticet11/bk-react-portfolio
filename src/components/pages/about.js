@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function About() {
 	return (
@@ -7,44 +7,60 @@ export default function About() {
 				<div className="left-column about-img"></div>
 				<div className="right-column bio-content">
 					<p>
-						Hi, thanks for coming to take a look at my work. My name is Brian and I look
-						forward to getting to know you! I'm originally from Upstate New York. I've
-						been married to my wife, Sage, for 4 years and we've got a 3 year old
-						daughter, Daisy.
+						Hi, thanks for coming by. My name is Brian and I look forward to getting to
+						know you! I'm originally from Upstate New York, but I spent most of my adult
+						life out west, mainly in Utah. My wife and I started our family out
+						there. It's also where I started my career in IT.
 					</p>
 					<p>
-						In my spare time, if I’m not coding, I like fixing cars and motorcycles and
-						watching movies. Check out which movies I've been watching, on the reviews
-						page.
+						My first software job was as an apprentice at Avii, a small startup, mainly
+						updating legacy .NET products to work in modern browsers. After 6 months, I
+						was promoted and hired on as a full-time software engineer.
 					</p>
 					<p>
-						Before getting into web development, I worked as a baker, a construction
-						worker, a guide at a floatation therapy center, and a delivery driver. I'd
-						love an opportunity to use some of my previous experiences in a development
-						role.
+						For my next position, I spent close to 3 years at Purple, the mattress
+						company, yes. There, I was hired as a Software Integration Engineer and was
+						later promoted to Software Engineer III. My main responsibilities on the
+						team were building, monitoring, and maintaining integrations between
+						external retail vendors and our internal systems, like recording Shopify
+						orders in NetSuite, for example.
 					</p>
 					<p>
-						We came back to Utah in 2020 so I could attend Bottega's web development
-						bootcamp, just in time for everything to shut down, so it was all remote.
-						About 2 months after completing my certification, I was able to land an
-						apprenticeship with Avii, where I worked for a year, mainly in updating
-						legacy .NET MVC enterprise products.
+						In my spare time, if I’m not coding, I like working on my homelab, DIY car
+						and home projects, and watching movies. Check out my letterboxd in the
+						reviews tab, if you wanna see what I've been watching. It was kind of a
+						hassle to build, but I like movies!
 					</p>
-					<p>Some of my skills:</p>
 
-					<ul className="skills-container">
-						<li>.NET</li>
-						<li>C#</li>
-						<li>React and React Native</li>
-						<li>HTML, CSS, SCSS, JavaScript</li>
-						<li>TSQL</li>
-						<li>Git, in GitHub and Azure DevOps</li>
-					</ul>
+					<div className="lists-container two-column">
+						<div className="skills-container">
+							<p>Some of my skills:</p>
+
+							<ul className="skills-list">
+								<li>Node.JS</li>
+								<li>HTML, CSS, SCSS, JavaScript</li>
+								<li>React</li>
+								<li>.NET and C#</li>
+								<li>Integrations and Automation</li>
+								<li>Systems Administration (Windows & Linux)</li>
+							</ul>
+						</div>
+						<div className="industries-container">
+							<p>Pre-software Industries:</p>
+
+							<ul className="industries-list">
+								<li>Logistics</li>
+								<li>Insurance</li>
+								<li>Construction</li>
+								<li>Retail</li>
+								<li>Customer Care</li>
+							</ul>
+						</div>
+					</div>
 
 					<p>
-						I don't know everything yet, but I have become an expert at finding answers
-						to my questions. I love to learn and I'm eager to find a team to grow with
-						and contribute to. If I seem like a good fit for a position with your
+						I don't know everything, yet, but I have become an expert at finding answers. I love to learn and I'm eager to find a team to grow with
+						and contribute to. The stack doesn't matter nearly as much as the team, in my opinion. If I seem like a good fit for a position with your
 						company, my contact info is in the next tab! I hope to hear from you soon.
 					</p>
 				</div>
