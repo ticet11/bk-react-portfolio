@@ -10,13 +10,13 @@ const Letterboxd = () => {
 
     useEffect(() => {
         parser.parseURL(
-            "https://kozubcorsproxy.herokuapp.com/https://letterboxd.com/ticet11/rss/",
-            function (err, feed) {
-                if (err) throw err;
-                setFeed(feed.items.slice(0, 6));
-                setIsLoading(false);
-            }
-        );
+			"https://cors-proxy.briankozub.workers.dev/?url=https://letterboxd.com/ticet11/rss/",
+			function (err, feed) {
+				if (err) throw err;
+				setFeed(feed.items.slice(0, 6));
+				setIsLoading(false);
+			}
+		);
         return () => "finished";
     }, []);
 
