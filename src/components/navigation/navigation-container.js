@@ -37,7 +37,7 @@ const NavigationContainer = (props) => {
 			<div className="nav-left">
 				<div className="nav-link-wrapper">
 					<NavLink exact to="/" activeClassName="nav-link-active">
-						Home
+						Portfolio
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">

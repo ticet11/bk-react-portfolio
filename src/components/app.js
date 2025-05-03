@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import axios from 'axios';
 
-import Home from './pages/home';
+import Portfolio from './pages/portfolio';
 import About from './pages/about';
 import Contact from './pages/contact';
 import PortfolioManager from './pages/portfolio-manager';
@@ -106,7 +106,7 @@ export default class App extends Component {
 						/>
 
 						<Switch>
-							<Route exact path="/" component={Home} />
+							<Route exact path="/" component={Portfolio} />
 							<Route exact path="/about" component={About} />
 							<Route
 								exact
