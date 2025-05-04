@@ -64,7 +64,7 @@ export default function About() {
 						answers. I love to learn and I'm eager to find a team to grow with and
 						contribute to. The stack doesn't matter nearly as much as the team, in my
 						opinion. If I seem like a good fit for a position with your company, here's
-						my <Link to={'/contact'}>contact info</Link>! I hope to hear from you soon.
+						my <Link to={"/contact"}>contact info</Link>! I hope to hear from you soon.
 					</p>
 				</div>
 			</div>
