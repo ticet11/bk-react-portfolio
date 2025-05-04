@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function About() {
 	return (
@@ -9,8 +10,8 @@ export default function About() {
 					<p>
 						Hi, thanks for coming by. My name is Brian and I look forward to getting to
 						know you! I'm originally from Upstate New York, but I spent most of my adult
-						life out west, mainly in Utah. My wife and I started our family out
-						there. It's also where I started my career in IT.
+						life out west, mainly in Utah. My wife and I started our family out there.
+						It's also where I started my career in IT.
 					</p>
 					<p>
 						My first software job was as an apprentice at Avii, a small startup, mainly
@@ -59,9 +60,11 @@ export default function About() {
 					</div>
 
 					<p>
-						I don't know everything, yet, but I have become an expert at finding answers. I love to learn and I'm eager to find a team to grow with
-						and contribute to. The stack doesn't matter nearly as much as the team, in my opinion. If I seem like a good fit for a position with your
-						company, my contact info is in the next tab! I hope to hear from you soon.
+						I don't know everything, yet, but I have become an expert at finding
+						answers. I love to learn and I'm eager to find a team to grow with and
+						contribute to. The stack doesn't matter nearly as much as the team, in my
+						opinion. If I seem like a good fit for a position with your company, here's
+						my <Link to={'/contact'}>contact info</Link>! I hope to hear from you soon.
 					</p>
 				</div>
 			</div>
