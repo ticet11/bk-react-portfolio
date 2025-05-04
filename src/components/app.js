@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-import axios from 'axios';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import axios from "axios";
 
-import Portfolio from './pages/portfolio';
-import About from './pages/about';
-import Contact from './pages/contact';
-import PortfolioManager from './pages/portfolio-manager';
-import NoMatch from './pages/noMatch';
-import Icons from '../helpers/icons';
-import PortfolioDetail from './portfolio/portfolio-detail';
-import Letterboxd from './pages/letterboxd';
-import Auth from './pages/auth';
-import NavigationContainer from './navigation/navigation-container';
+import Portfolio from "./pages/portfolio";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import PortfolioManager from "./pages/portfolio-manager";
+import NoMatch from "./pages/noMatch";
+import Icons from "../helpers/icons";
+import PortfolioDetail from "./portfolio/portfolio-detail";
+import Letterboxd from "./pages/letterboxd";
+import Auth from "./pages/auth";
+import NavigationContainer from "./navigation/navigation-container";
 
 export const history = createBrowserHistory({
 	basename: process.env.PUBLIC_URL,
@@ -25,7 +25,7 @@ export default class App extends Component {
 		Icons();
 
 		this.state = {
-			loggedInStatus: 'NOT_LOGGED_IN',
+			loggedInStatus: "NOT_LOGGED_IN",
 		};
 		this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
 		this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
@@ -34,25 +34,25 @@ export default class App extends Component {
 
 	handleSuccessfulLogin() {
 		this.setState({
-			loggedInStatus: 'LOGGED_IN',
+			loggedInStatus: "LOGGED_IN",
 		});
 	}
 
 	handleUnsuccessfulLogin() {
 		this.setState({
-			loggedInStatus: 'NOT_LOGGED_IN',
+			loggedInStatus: "NOT_LOGGED_IN",
 		});
 	}
 
 	handleSuccessfulLogout() {
 		this.setState({
-			loggedInStatus: 'NOT_LOGGED_IN',
+			loggedInStatus: "NOT_LOGGED_IN",
 		});
 	}
 
 	checkLoginStatus() {
 		return axios
-			.get('https://api.devcamp.space/logged_in', {
+			.get("https://api.devcamp.space/logged_in", {
 				withCredentials: true,
 			})
 			.then((response) => {
@@ -63,20 +63,20 @@ export default class App extends Component {
 				// If loggedIn and status is NOT_LOGGED_IN => update state
 				// If not loggedIn and status is LOGGED_IN => update state (NOT_LOGGED_IN)
 
-				if (loggedIn && loggedInStatus === 'LOGGED_IN') {
+				if (loggedIn && loggedInStatus === "LOGGED_IN") {
 					return loggedIn;
-				} else if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
+				} else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
 					this.setState({
-						loggedInStatus: 'LOGGED_IN',
+						loggedInStatus: "LOGGED_IN",
 					});
-				} else if (!loggedIn && loggedInStatus === 'LOGGED_IN') {
+				} else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
 					this.setState({
-						loggedInStatus: 'NOT_LOGGED_IN',
+						loggedInStatus: "NOT_LOGGED_IN",
 					});
 				}
 			})
 			.catch((error) => {
-				console.error('Error', error);
+				console.error("Error", error);
 			});
 	}
 
@@ -106,8 +106,10 @@ export default class App extends Component {
 						/>
 
 						<Switch>
-							<Route exact path="/" component={Portfolio} />
-							<Route exact path="/about" component={About} />
+							<Route exact path="/" component={About} />
+							<Route exact path="/portfolio" component={Portfolio} />
+							<Route exact path="/reviews" component={Letterboxd} />
+							<Route exact path="/contact" component={Contact} />
 							<Route
 								exact
 								path="/auth"
@@ -119,9 +121,7 @@ export default class App extends Component {
 									/>
 								)}
 							/>
-							<Route exact path="/contact" component={Contact} />
-							<Route exact path="/reviews" component={Letterboxd} />
-							{this.state.loggedInStatus === 'LOGGED_IN'
+							{this.state.loggedInStatus === "LOGGED_IN"
 								? this.authorizedPages()
 								: null}
 							<Route exact path="/portfolio/:slug" component={PortfolioDetail} />

@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios';
-import { withRouter } from 'react-router';
-import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import axios from "axios";
+import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavigationContainer = (props) => {
 	const dynamicLink = (route, linkText) => {
@@ -17,18 +17,18 @@ const NavigationContainer = (props) => {
 
 	const handleSignOut = () => {
 		axios
-			.delete('https://api.devcamp.space/logout', {
+			.delete("https://api.devcamp.space/logout", {
 				withCredentials: true,
 			})
 			.then((response) => {
 				if (response.status === 200) {
-					props.history.push('./');
+					props.history.push("./");
 					props.handleSuccessfulLogout();
 				}
 				return response.data;
 			})
 			.catch((error) => {
-				console.error('error with logout', error);
+				console.error("error with logout", error);
 			});
 	};
 
@@ -37,17 +37,12 @@ const NavigationContainer = (props) => {
 			<div className="nav-left">
 				<div className="nav-link-wrapper">
 					<NavLink exact to="/" activeClassName="nav-link-active">
-						Portfolio
-					</NavLink>
-				</div>
-				<div className="nav-link-wrapper">
-					<NavLink exact to="/about" activeClassName="nav-link-active">
 						About
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">
-					<NavLink exact to="/contact" activeClassName="nav-link-active">
-						Contact
+					<NavLink exact to="/portfolio" activeClassName="nav-link-active">
+						Portfolio
 					</NavLink>
 				</div>
 				<div className="nav-link-wrapper">
@@ -55,13 +50,18 @@ const NavigationContainer = (props) => {
 						Reviews
 					</NavLink>
 				</div>
-				{props.loggedInStatus === 'LOGGED_IN'
-					? dynamicLink('/portfolio-manager', 'Portfolio Manager')
+				<div className="nav-link-wrapper">
+					<NavLink exact to="/contact" activeClassName="nav-link-active">
+						Contact
+					</NavLink>
+				</div>
+				{props.loggedInStatus === "LOGGED_IN"
+					? dynamicLink("/portfolio-manager", "Portfolio Manager")
 					: null}
 			</div>
 			<div className="nav-right">
 				Brian Kozub
-				{props.loggedInStatus === 'LOGGED_IN' ? (
+				{props.loggedInStatus === "LOGGED_IN" ? (
 					<a onClick={handleSignOut}>
 						<FontAwesomeIcon icon="sign-out-alt" />
 					</a>
