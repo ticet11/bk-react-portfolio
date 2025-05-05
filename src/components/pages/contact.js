@@ -87,7 +87,7 @@ export default function Contact() {
 								target="_blank"
 								href="https://goo.gl/maps/Dqy7sq9wEpd7erJ16"
 							>
-								Lehi, UT
+								Rochester, NY
 							</a>
 						</div>
 					</div>
