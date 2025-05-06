@@ -81,7 +81,7 @@ export default class PortfolioContainer extends Component {
         }
 
         return (
-            <div className="homepage-wrapper">
+            <div className="portfolio-wrapper">
                 {this.state.filter === "" ? (
                     <div className="filter-links">
                         <button
