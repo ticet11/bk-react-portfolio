@@ -3,7 +3,7 @@ const { ProvidePlugin, DefinePlugin } = require('webpack');
 const SplitChunksPlugin = require('webpack/lib/optimize/SplitChunksPlugin');
 
 module.exports = {
-	target: "node",
+	target: "web",
 	entry: {
 		app: ["./src/bootstrap.js"],
 		vendor: "./src/vendor.js",
